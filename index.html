@@ -16,7 +16,7 @@
       --white: #ffffff;
       --soft-white: #dce5ef;
       --muted: #91a2b8;
-      --line: rgba(255, 255, 255, 0.16);
+      --line: rgba(255, 255, 255, 0.15);
       --max: 1240px;
     }
 
@@ -68,8 +68,8 @@
     }
 
     .section-title {
-      font-size: clamp(2.8rem, 7vw, 6.4rem);
-      letter-spacing: -0.075em;
+      font-size: clamp(2.8rem, 7vw, 6.3rem);
+      letter-spacing: -0.08em;
       line-height: 0.82;
       margin: 0.75rem 0 1.5rem;
       text-transform: uppercase;
@@ -78,15 +78,16 @@
     .section-copy {
       color: var(--soft-white);
       font-size: 1.05rem;
-      max-width: 610px;
+      max-width: 620px;
     }
 
     .button {
       background: var(--yellow);
       border: 2px solid var(--yellow);
       color: var(--night);
+      cursor: pointer;
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 900;
       letter-spacing: 0.12em;
       padding: 1rem 1.35rem;
@@ -113,8 +114,8 @@
 
     /* Navigation */
     header {
-      backdrop-filter: blur(12px);
-      background: rgba(6, 10, 18, 0.92);
+      backdrop-filter: blur(14px);
+      background: rgba(6, 10, 18, 0.94);
       border-bottom: 1px solid var(--line);
       left: 0;
       position: fixed;
@@ -159,12 +160,12 @@
       color: var(--yellow);
     }
 
-    /* Hero */
+    /* Clean hero */
     .hero {
       align-items: end;
       background:
-        linear-gradient(90deg, rgba(6, 10, 18, 0.96) 10%, rgba(6, 10, 18, 0.68) 58%, rgba(6, 10, 18, 0.92)),
-        linear-gradient(125deg, var(--navy), #06111e 67%);
+        radial-gradient(circle at 82% 26%, rgba(0, 87, 184, 0.68), transparent 30%),
+        linear-gradient(120deg, #060a12 0%, #081628 52%, #003b79 100%);
       display: grid;
       min-height: 100vh;
       overflow: hidden;
@@ -173,43 +174,68 @@
     }
 
     .hero::before {
-      background:
-        linear-gradient(142deg, transparent 0 38%, var(--yellow) 38.2% 44%, transparent 44.2% 100%),
-        linear-gradient(142deg, transparent 0 48%, var(--white) 48.2% 51%, transparent 51.2% 100%),
-        linear-gradient(142deg, transparent 0 56%, var(--red) 56.2% 63%, transparent 63.2% 100%);
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 46px 46px;
       content: "";
-      height: 100%;
-      opacity: 0.95;
+      inset: 0;
+      mask-image: linear-gradient(90deg, transparent 5%, black 56%, transparent 100%);
+      opacity: 0.5;
       position: absolute;
-      right: -15%;
-      top: 0;
-      transform: skewX(-8deg);
-      width: 82%;
     }
 
     .hero::after {
-      border: 2px solid rgba(239, 255, 0, 0.72);
-      border-radius: 50%;
+      background:
+        linear-gradient(147deg, transparent 0 44%, var(--yellow) 44.2% 45.6%, transparent 45.8% 100%),
+        linear-gradient(147deg, transparent 0 49%, var(--white) 49.2% 50%, transparent 50.2% 100%),
+        linear-gradient(147deg, transparent 0 54%, var(--red) 54.2% 56%, transparent 56.2% 100%);
       content: "";
-      height: 62vw;
-      max-height: 760px;
+      height: 100%;
+      opacity: 0.9;
       position: absolute;
-      right: -17vw;
-      top: 12%;
-      width: 62vw;
+      right: -24%;
+      top: 0;
+      transform: skewX(-12deg);
+      width: 65%;
     }
 
     .hero-content {
-      max-width: 830px;
+      max-width: 850px;
       position: relative;
       z-index: 2;
     }
 
+    .identity {
+      align-items: center;
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .flags {
+      align-items: center;
+      background: rgba(6, 10, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: inline-flex;
+      font-size: 1.1rem;
+      gap: 0.35rem;
+      padding: 0.34rem 0.6rem;
+    }
+
+    .identity-label {
+      color: var(--soft-white);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
     .hero h1 {
-      font-size: clamp(4.2rem, 12vw, 10rem);
-      letter-spacing: -0.09em;
+      font-size: clamp(4rem, 12vw, 10rem);
+      letter-spacing: -0.095em;
       line-height: 0.73;
-      margin: 1rem 0 2rem;
+      margin: 0.8rem 0 2rem;
       text-transform: uppercase;
     }
 
@@ -221,13 +247,13 @@
       color: var(--soft-white);
       font-size: 1.1rem;
       margin-bottom: 2rem;
-      max-width: 510px;
+      max-width: 530px;
     }
 
     .hero-number {
-      bottom: 1.3rem;
-      color: rgba(255, 255, 255, 0.22);
-      font-size: clamp(5rem, 17vw, 13rem);
+      bottom: 1rem;
+      color: rgba(255, 255, 255, 0.14);
+      font-size: clamp(6rem, 18vw, 14rem);
       font-weight: 900;
       letter-spacing: -0.12em;
       line-height: 0.7;
@@ -236,63 +262,62 @@
       z-index: 1;
     }
 
-    .hero-label {
-      bottom: 2rem;
-      color: var(--yellow);
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      position: absolute;
-      right: 5%;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      z-index: 3;
-    }
-
-    /* Race data */
-    .race-data {
+    /* Currently section */
+    .currently {
       background: var(--yellow);
       color: var(--night);
-      overflow: hidden;
+      padding: 0;
     }
 
-    .data-grid {
+    .currently-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1.2fr repeat(3, 1fr);
     }
 
-    .data-item {
-      border-right: 1px solid rgba(6, 10, 18, 0.32);
-      padding: 1.8rem 1.2rem;
-      position: relative;
+    .currently-title,
+    .current-item {
+      border-right: 1px solid rgba(6, 10, 18, 0.3);
+      padding: 1.9rem 1.2rem;
     }
 
-    .data-item:last-child {
+    .current-item:last-child {
       border-right: 0;
     }
 
-    .data-item strong {
+    .currently-title span,
+    .current-item span {
       display: block;
-      font-size: clamp(1.9rem, 4vw, 3.2rem);
-      letter-spacing: -0.08em;
-      line-height: 1;
-    }
-
-    .data-item span {
       font-size: 0.67rem;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
     }
 
-    /* About */
+    .currently-title strong {
+      display: block;
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      letter-spacing: -0.07em;
+      line-height: 1;
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .current-item strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.15;
+      margin-top: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    /* Standard sections */
     section {
       padding: 7rem 0;
     }
 
     .about {
       background:
-        linear-gradient(90deg, transparent 0 50%, rgba(0, 87, 184, 0.12) 50% 100%),
+        linear-gradient(90deg, transparent 0 50%, rgba(0, 87, 184, 0.1) 50% 100%),
         var(--night);
     }
 
@@ -319,7 +344,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: 35%;
+      width: 38%;
     }
 
     .profile-card h3 {
@@ -332,20 +357,15 @@
       color: var(--soft-white);
     }
 
+    .profile-flags {
+      font-size: 1.4rem;
+      margin-top: 1.4rem;
+    }
+
     /* Career */
     .career {
       background: #091321;
-      position: relative;
-    }
-
-    .career::before {
-      background: var(--red);
-      content: "";
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 8px;
+      border-left: 8px solid var(--red);
     }
 
     .timeline {
@@ -389,7 +409,134 @@
       text-transform: uppercase;
     }
 
-    /* Partner section */
+    /* 3D Gallery */
+    .gallery-section {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 87, 184, 0.24), transparent 45%),
+        var(--night);
+      overflow: hidden;
+    }
+
+    .gallery-intro {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .gallery-controls {
+      align-items: end;
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .gallery-controls button {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 1.3rem;
+      height: 45px;
+      transition: 0.2s ease;
+      width: 45px;
+    }
+
+    .gallery-controls button:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--night);
+    }
+
+    .gallery-stage {
+      height: 430px;
+      margin-top: 3.5rem;
+      perspective: 1300px;
+      position: relative;
+    }
+
+    .gallery-track {
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
+      width: 100%;
+    }
+
+    .gallery-card {
+      background-color: #10223b;
+      background-position: center;
+      background-size: cover;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+      height: 300px;
+      left: 50%;
+      overflow: hidden;
+      padding: 1.5rem;
+      position: absolute;
+      top: 50%;
+      transform-style: preserve-3d;
+      transition: 0.7s cubic-bezier(.2, .8, .2, 1);
+      width: min(74vw, 550px);
+    }
+
+    .gallery-card::before {
+      background: linear-gradient(180deg, rgba(6, 10, 18, 0.05), rgba(6, 10, 18, 0.9));
+      content: "";
+      inset: 0;
+      position: absolute;
+    }
+
+    .gallery-card-content {
+      bottom: 1.5rem;
+      left: 1.5rem;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .gallery-card small {
+      color: var(--yellow);
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .gallery-card h3 {
+      font-size: 1.5rem;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .photo-1 {
+      background-image:
+        linear-gradient(135deg, rgba(0, 59, 121, 0.5), rgba(215, 25, 32, 0.35)),
+        url("photos/race-01.jpg");
+    }
+
+    .photo-2 {
+      background-image:
+        linear-gradient(135deg, rgba(239, 255, 0, 0.3), rgba(0, 59, 121, 0.7)),
+        url("photos/race-02.jpg");
+    }
+
+    .photo-3 {
+      background-image:
+        linear-gradient(135deg, rgba(215, 25, 32, 0.45), rgba(6, 10, 18, 0.5)),
+        url("photos/race-03.jpg");
+    }
+
+    .photo-4 {
+      background-image:
+        linear-gradient(135deg, rgba(0, 87, 184, 0.65), rgba(239, 255, 0, 0.23)),
+        url("photos/race-04.jpg");
+    }
+
+    .photo-5 {
+      background-image:
+        linear-gradient(135deg, rgba(6, 10, 18, 0.25), rgba(215, 25, 32, 0.65)),
+        url("photos/race-05.jpg");
+    }
+
+    /* Partners */
     .partner-grid {
       display: grid;
       gap: 1rem;
@@ -417,7 +564,7 @@
       color: var(--yellow);
     }
 
-    /* Investors */
+    /* Investor section */
     .investors {
       background:
         linear-gradient(135deg, rgba(215, 25, 32, 0.2), transparent 45%),
@@ -489,27 +636,31 @@
         display: none;
       }
 
-      .hero::before {
-        opacity: 0.7;
-        right: -42%;
-        width: 130%;
+      .hero::after {
+        opacity: 0.65;
+        right: -50%;
+        width: 125%;
       }
 
-      .hero-number,
-      .hero-label {
+      .hero-number {
         display: none;
       }
 
-      .data-grid {
+      .currently-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .data-item:nth-child(2) {
-        border-right: 0;
+      .currently-title {
+        grid-column: 1 / -1;
       }
 
-      .data-item:nth-child(-n + 2) {
-        border-bottom: 1px solid rgba(6, 10, 18, 0.32);
+      .currently-title,
+      .current-item {
+        border-bottom: 1px solid rgba(6, 10, 18, 0.3);
+      }
+
+      .current-item:nth-child(3) {
+        border-right: 0;
       }
 
       .about-grid,
@@ -524,6 +675,20 @@
 
       .tag {
         justify-self: start;
+      }
+
+      .gallery-intro {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .gallery-stage {
+        height: 360px;
+      }
+
+      .gallery-card {
+        height: 240px;
+        width: min(82vw, 550px);
       }
 
       .partner-grid {
@@ -545,10 +710,10 @@
 
       <ul class="nav-links">
         <li><a href="#about">Profile</a></li>
+        <li><a href="#currently">Currently</a></li>
         <li><a href="#career">Career</a></li>
-        <li><a href="#partners">Partners</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#investors">Investors</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -556,36 +721,47 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-content">
+        <div class="identity">
+          <div class="flags" aria-label="Australian and Hungarian flags">
+            <span>🇦🇺</span>
+            <span>🇭🇺</span>
+          </div>
+          <span class="identity-label">Australian / Hungarian Motorsport Driver</span>
+        </div>
+
         <p class="eyebrow">Official Motorsport Website</p>
-        <h1>Driven<br>to <span>Win.</span></h1>
+
+        <h1>Driver<br><span>Name.</span></h1>
+
         <p class="hero-intro">
           Precision. Commitment. Performance. The official home of DRIVER NAME
           and the pursuit of the next level in motorsport.
         </p>
-        <a class="button" href="#about">Enter the paddock</a>
-      </div>
 
-      <div class="hero-number">00</div>
-      <span class="hero-label">Apex Performance</span>
+        <a class="button" href="#currently">Current campaign</a>
+      </div>
     </section>
 
-    <section class="race-data">
-      <div class="container data-grid">
-        <div class="data-item">
-          <strong>00</strong>
-          <span>Race Starts</span>
+    <section class="currently" id="currently">
+      <div class="container currently-grid">
+        <div class="currently-title">
+          <span>Currently</span>
+          <strong>On the grid.</strong>
         </div>
-        <div class="data-item">
-          <strong>00</strong>
-          <span>Podiums</span>
+
+        <div class="current-item">
+          <span>Season</span>
+          <strong>2026 Campaign</strong>
         </div>
-        <div class="data-item">
-          <strong>00</strong>
-          <span>Wins</span>
+
+        <div class="current-item">
+          <span>Racing</span>
+          <strong>Category to be added</strong>
         </div>
-        <div class="data-item">
-          <strong>2026</strong>
-          <span>Current Season</span>
+
+        <div class="current-item">
+          <span>Next target</span>
+          <strong>Next race / objective</strong>
         </div>
       </div>
     </section>
@@ -609,6 +785,9 @@
             on and off the circuit. This profile will become a clear,
             professional introduction for fans, teams, partners, and investors.
           </p>
+          <div class="profile-flags" aria-label="Australian and Hungarian heritage">
+            🇦🇺 &nbsp; 🇭🇺
+          </div>
         </article>
       </div>
     </section>
@@ -619,8 +798,8 @@
         <h2 class="section-title">Full<br>Attack.</h2>
         <p class="section-copy">
           Your results, championships, teams, and defining moments will live
-          here. We will replace these placeholder entries with your real career
-          history next.
+          here. We will replace these placeholders with your actual career
+          history.
         </p>
 
         <div class="timeline">
@@ -628,7 +807,7 @@
             <span class="year">2026</span>
             <div>
               <h3>Current Campaign</h3>
-              <p>Championship, racing class, team, and objective to be added.</p>
+              <p>Championship, class, team, and season objective to be added.</p>
             </div>
             <span class="tag">Current</span>
           </article>
@@ -650,6 +829,65 @@
             </div>
             <span class="tag">Vision</span>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="gallery-intro">
+          <div>
+            <p class="eyebrow">Racing Gallery</p>
+            <h2 class="section-title">The paddock<br>in motion.</h2>
+            <p class="section-copy">
+              A rotating 3D gallery for your racing photography. It is ready
+              for five images, which we will add once you upload them.
+            </p>
+          </div>
+
+          <div class="gallery-controls">
+            <button id="previous-photo" aria-label="Previous photo">←</button>
+            <button id="next-photo" aria-label="Next photo">→</button>
+          </div>
+        </div>
+
+        <div class="gallery-stage">
+          <div class="gallery-track" id="gallery-track">
+            <article class="gallery-card photo-1">
+              <div class="gallery-card-content">
+                <small>Photo 01</small>
+                <h3>Race Day</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card photo-2">
+              <div class="gallery-card-content">
+                <small>Photo 02</small>
+                <h3>On Track</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card photo-3">
+              <div class="gallery-card-content">
+                <small>Photo 03</small>
+                <h3>Full Focus</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card photo-4">
+              <div class="gallery-card-content">
+                <small>Photo 04</small>
+                <h3>Race Weekend</h3>
+              </div>
+            </article>
+
+            <article class="gallery-card photo-5">
+              <div class="gallery-card-content">
+                <small>Photo 05</small>
+                <h3>Next Level</h3>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -687,9 +925,9 @@
         <article class="investor-box">
           <h3>Performance. Reach. Growth.</h3>
           <p>
-            A clear, private investor proposition will be added here, including
-            the racing plan, funding needs, commercial opportunities, and a
-            request-for-deck contact route.
+            A clear private investor proposition will be added here, including
+            the racing plan, commercial opportunities, and a request-for-deck
+            contact route.
           </p>
           <a class="button button-outline" href="#contact">Request information</a>
         </article>
@@ -711,6 +949,45 @@
       <span>Motorsport / Performance / Partnership</span>
     </div>
   </footer>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".gallery-card"));
+    const previousButton = document.getElementById("previous-photo");
+    const nextButton = document.getElementById("next-photo");
+    let activePhoto = 0;
+
+    function arrangeGallery() {
+      cards.forEach((card, index) => {
+        let position = index - activePhoto;
+
+        if (position > 2) position -= cards.length;
+        if (position < -2) position += cards.length;
+
+        const translateX = position * 48;
+        const translateZ = Math.abs(position) === 0 ? 70 : -Math.abs(position) * 170;
+        const rotateY = position * -28;
+        const opacity = Math.abs(position) > 2 ? 0 : 1;
+        const zIndex = 10 - Math.abs(position);
+
+        card.style.opacity = opacity;
+        card.style.zIndex = zIndex;
+        card.style.transform =
+          `translate(-50%, -50%) translateX(${translateX}%) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+      });
+    }
+
+    nextButton.addEventListener("click", () => {
+      activePhoto = (activePhoto + 1) % cards.length;
+      arrangeGallery();
+    });
+
+    previousButton.addEventListener("click", () => {
+      activePhoto = (activePhoto - 1 + cards.length) % cards.length;
+      arrangeGallery();
+    });
+
+    arrangeGallery();
+  </script>
 </body>
 </html>
 
