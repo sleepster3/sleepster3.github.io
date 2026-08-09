@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official website of DRIVER NAME — Motorsport Driver.">
-  <title>DRIVER NAME | Motorsport</title>
+  <meta name="description" content="Isaac Potts — Australian-Hungarian Karting Driver based in Abu Dhabi.">
+  <title>Isaac Potts | Motorsport</title>
 
   <style>
     :root {
@@ -14,9 +14,9 @@
       --yellow: #efff00;
       --red: #d71920;
       --white: #ffffff;
-      --soft-white: #dce5ef;
-      --muted: #91a2b8;
-      --line: rgba(255, 255, 255, 0.15);
+      --soft: #dce5ef;
+      --muted: #9cabc0;
+      --line: rgba(255, 255, 255, 0.16);
       --max: 1240px;
     }
 
@@ -44,7 +44,7 @@
     }
 
     .container {
-      margin: 0 auto;
+      margin: auto;
       width: min(92%, var(--max));
     }
 
@@ -52,7 +52,7 @@
       align-items: center;
       color: var(--yellow);
       display: flex;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 900;
       gap: 0.65rem;
       letter-spacing: 0.16em;
@@ -62,7 +62,6 @@
     .eyebrow::before {
       background: var(--red);
       content: "";
-      display: inline-block;
       height: 2px;
       width: 30px;
     }
@@ -76,16 +75,15 @@
     }
 
     .section-copy {
-      color: var(--soft-white);
+      color: var(--soft);
       font-size: 1.05rem;
-      max-width: 620px;
+      max-width: 650px;
     }
 
     .button {
       background: var(--yellow);
       border: 2px solid var(--yellow);
       color: var(--night);
-      cursor: pointer;
       display: inline-block;
       font-size: 0.74rem;
       font-weight: 900;
@@ -113,6 +111,7 @@
     }
 
     /* Navigation */
+
     header {
       backdrop-filter: blur(14px);
       background: rgba(6, 10, 18, 0.94);
@@ -144,12 +143,12 @@
 
     .nav-links {
       display: flex;
-      gap: 1.4rem;
+      gap: 1.35rem;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--soft-white);
+      color: var(--soft);
       font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.1em;
@@ -160,12 +159,13 @@
       color: var(--yellow);
     }
 
-    /* Clean hero */
+    /* Hero */
+
     .hero {
       align-items: end;
       background:
-        radial-gradient(circle at 82% 26%, rgba(0, 87, 184, 0.68), transparent 30%),
-        linear-gradient(120deg, #060a12 0%, #081628 52%, #003b79 100%);
+        linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.76) 45%, rgba(6, 10, 18, 0.32) 100%),
+        url("photos/hero.jpg") center 32% / cover;
       display: grid;
       min-height: 100vh;
       overflow: hidden;
@@ -177,11 +177,10 @@
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-      background-size: 46px 46px;
+      background-size: 48px 48px;
       content: "";
       inset: 0;
-      mask-image: linear-gradient(90deg, transparent 5%, black 56%, transparent 100%);
-      opacity: 0.5;
+      mask-image: linear-gradient(90deg, black, transparent 70%);
       position: absolute;
     }
 
@@ -194,10 +193,10 @@
       height: 100%;
       opacity: 0.9;
       position: absolute;
-      right: -24%;
+      right: -22%;
       top: 0;
       transform: skewX(-12deg);
-      width: 65%;
+      width: 62%;
     }
 
     .hero-content {
@@ -214,9 +213,8 @@
     }
 
     .flags {
-      align-items: center;
-      background: rgba(6, 10, 18, 0.62);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(6, 10, 18, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       display: inline-flex;
       font-size: 1.1rem;
       gap: 0.35rem;
@@ -224,7 +222,7 @@
     }
 
     .identity-label {
-      color: var(--soft-white);
+      color: var(--soft);
       font-size: 0.68rem;
       font-weight: 900;
       letter-spacing: 0.13em;
@@ -244,25 +242,14 @@
     }
 
     .hero-intro {
-      color: var(--soft-white);
+      color: var(--soft);
       font-size: 1.1rem;
       margin-bottom: 2rem;
-      max-width: 530px;
+      max-width: 570px;
     }
 
-    .hero-number {
-      bottom: 1rem;
-      color: rgba(255, 255, 255, 0.14);
-      font-size: clamp(6rem, 18vw, 14rem);
-      font-weight: 900;
-      letter-spacing: -0.12em;
-      line-height: 0.7;
-      position: absolute;
-      right: 4%;
-      z-index: 1;
-    }
+    /* Currently */
 
-    /* Currently section */
     .currently {
       background: var(--yellow);
       color: var(--night);
@@ -284,8 +271,7 @@
       border-right: 0;
     }
 
-    .currently-title span,
-    .current-item span {
+    .currently span {
       display: block;
       font-size: 0.67rem;
       font-weight: 900;
@@ -293,16 +279,7 @@
       text-transform: uppercase;
     }
 
-    .currently-title strong {
-      display: block;
-      font-size: clamp(1.7rem, 3vw, 2.7rem);
-      letter-spacing: -0.07em;
-      line-height: 1;
-      margin-top: 0.35rem;
-      text-transform: uppercase;
-    }
-
-    .current-item strong {
+    .currently strong {
       display: block;
       font-size: 1rem;
       line-height: 1.15;
@@ -310,7 +287,14 @@
       text-transform: uppercase;
     }
 
-    /* Standard sections */
+    .currently-title strong {
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      letter-spacing: -0.07em;
+      line-height: 1;
+    }
+
+    /* General */
+
     section {
       padding: 7rem 0;
     }
@@ -329,10 +313,8 @@
 
     .profile-card {
       background: linear-gradient(145deg, var(--navy), #08101c);
+      border: 1px solid var(--line);
       border-bottom: 6px solid var(--red);
-      border-left: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-      border-top: 1px solid var(--line);
       padding: 2rem;
       position: relative;
     }
@@ -354,7 +336,7 @@
     }
 
     .profile-card p {
-      color: var(--soft-white);
+      color: var(--soft);
     }
 
     .profile-flags {
@@ -363,6 +345,7 @@
     }
 
     /* Career */
+
     .career {
       background: #091321;
       border-left: 8px solid var(--red);
@@ -410,6 +393,7 @@
     }
 
     /* 3D Gallery */
+
     .gallery-section {
       background:
         radial-gradient(circle at 50% 0%, rgba(0, 87, 184, 0.24), transparent 45%),
@@ -436,7 +420,7 @@
       cursor: pointer;
       font-size: 1.3rem;
       height: 45px;
-      transition: 0.2s ease;
+      transition: 0.2s;
       width: 45px;
     }
 
@@ -453,14 +437,6 @@
       position: relative;
     }
 
-    .gallery-track {
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
-      width: 100%;
-    }
-
     .gallery-card {
       background-color: #10223b;
       background-position: center;
@@ -473,13 +449,12 @@
       padding: 1.5rem;
       position: absolute;
       top: 50%;
-      transform-style: preserve-3d;
       transition: 0.7s cubic-bezier(.2, .8, .2, 1);
       width: min(74vw, 550px);
     }
 
     .gallery-card::before {
-      background: linear-gradient(180deg, rgba(6, 10, 18, 0.05), rgba(6, 10, 18, 0.9));
+      background: linear-gradient(180deg, rgba(6, 10, 18, 0.03), rgba(6, 10, 18, 0.92));
       content: "";
       inset: 0;
       position: absolute;
@@ -508,39 +483,44 @@
 
     .photo-1 {
       background-image:
-        linear-gradient(135deg, rgba(0, 59, 121, 0.5), rgba(215, 25, 32, 0.35)),
-        url("photos/race-01.jpg");
+        linear-gradient(135deg, rgba(0, 59, 121, 0.45), rgba(215, 25, 32, 0.35)),
+        url("photos/gallery-1.jpg");
     }
 
     .photo-2 {
       background-image:
-        linear-gradient(135deg, rgba(239, 255, 0, 0.3), rgba(0, 59, 121, 0.7)),
-        url("photos/race-02.jpg");
+        linear-gradient(135deg, rgba(239, 255, 0, 0.18), rgba(0, 59, 121, 0.65)),
+        url("photos/gallery-2.jpg");
     }
 
     .photo-3 {
       background-image:
-        linear-gradient(135deg, rgba(215, 25, 32, 0.45), rgba(6, 10, 18, 0.5)),
-        url("photos/race-03.jpg");
+        linear-gradient(135deg, rgba(215, 25, 32, 0.38), rgba(6, 10, 18, 0.45)),
+        url("photos/gallery-3.jpg");
     }
 
     .photo-4 {
       background-image:
-        linear-gradient(135deg, rgba(0, 87, 184, 0.65), rgba(239, 255, 0, 0.23)),
-        url("photos/race-04.jpg");
+        linear-gradient(135deg, rgba(0, 87, 184, 0.58), rgba(239, 255, 0, 0.18)),
+        url("photos/gallery-4.jpg");
     }
 
     .photo-5 {
       background-image:
-        linear-gradient(135deg, rgba(6, 10, 18, 0.25), rgba(215, 25, 32, 0.65)),
-        url("photos/race-05.jpg");
+        linear-gradient(135deg, rgba(6, 10, 18, 0.2), rgba(215, 25, 32, 0.6)),
+        url("photos/gallery-5.jpg");
     }
 
     /* Partners */
+
+    .partners {
+      background: #091321;
+    }
+
     .partner-grid {
       display: grid;
       gap: 1rem;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       margin-top: 3rem;
     }
 
@@ -552,19 +532,21 @@
       display: flex;
       font-size: 0.72rem;
       font-weight: 900;
-      height: 125px;
       justify-content: center;
       letter-spacing: 0.12em;
+      min-height: 125px;
+      padding: 1rem;
+      text-align: center;
       text-transform: uppercase;
-      transition: 0.2s ease;
     }
 
-    .partner:hover {
-      border-color: var(--yellow);
+    .partner:first-child {
+      border-color: rgba(239, 255, 0, 0.5);
       color: var(--yellow);
     }
 
-    /* Investor section */
+    /* Partnership CTA */
+
     .investors {
       background:
         linear-gradient(135deg, rgba(215, 25, 32, 0.2), transparent 45%),
@@ -592,13 +574,13 @@
     }
 
     .investor-box p {
-      color: var(--soft-white);
+      color: var(--soft);
       margin-bottom: 1.5rem;
     }
 
     /* Contact */
+
     .contact {
-      background: var(--night);
       padding-bottom: 8rem;
       text-align: center;
     }
@@ -614,6 +596,16 @@
 
     .contact h2 span {
       color: var(--red);
+    }
+
+    .social-link {
+      color: var(--soft);
+      font-weight: 700;
+      margin-top: 1.2rem;
+    }
+
+    .social-link a {
+      color: var(--yellow);
     }
 
     footer {
@@ -640,10 +632,6 @@
         opacity: 0.65;
         right: -50%;
         width: 125%;
-      }
-
-      .hero-number {
-        display: none;
       }
 
       .currently-grid {
@@ -678,7 +666,6 @@
       }
 
       .gallery-intro {
-        align-items: start;
         flex-direction: column;
       }
 
@@ -692,7 +679,7 @@
       }
 
       .partner-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
 
       .footer-row {
@@ -706,14 +693,14 @@
 <body>
   <header>
     <nav class="container">
-      <a class="brand" href="#home">Driver <b>Name</b></a>
+      <a class="brand" href="#home">Isaac <b>Potts</b></a>
 
       <ul class="nav-links">
         <li><a href="#about">Profile</a></li>
         <li><a href="#currently">Currently</a></li>
         <li><a href="#career">Career</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#investors">Investors</a></li>
+        <li><a href="#partners">Partners</a></li>
       </ul>
     </nav>
   </header>
@@ -731,11 +718,11 @@
 
         <p class="eyebrow">Official Motorsport Website</p>
 
-        <h1>Driver<br><span>Name.</span></h1>
+        <h1>Isaac<br><span>Potts.</span></h1>
 
         <p class="hero-intro">
-          Precision. Commitment. Performance. The official home of DRIVER NAME
-          and the pursuit of the next level in motorsport.
+          Australian-Hungarian karting driver based in Abu Dhabi. Building
+          racecraft, technical knowledge, and momentum toward a full Rotax Max season.
         </p>
 
         <a class="button" href="#currently">Current campaign</a>
@@ -750,18 +737,18 @@
         </div>
 
         <div class="current-item">
-          <span>Season</span>
-          <strong>2026 Campaign</strong>
+          <span>Driver programme</span>
+          <strong>SWS & Rotax Development</strong>
         </div>
 
         <div class="current-item">
-          <span>Racing</span>
-          <strong>Category to be added</strong>
+          <span>Paddock role</span>
+          <strong>Mechanic at ItalCorse Middle East</strong>
         </div>
 
         <div class="current-item">
-          <span>Next target</span>
-          <strong>Next race / objective</strong>
+          <span>Target</span>
+          <strong>Full 2027–2028 Rotax Season</strong>
         </div>
       </div>
     </section>
@@ -770,24 +757,27 @@
       <div class="container about-grid">
         <div>
           <p class="eyebrow">Driver Profile</p>
-          <h2 class="section-title">More than<br>the lap time.</h2>
+          <h2 class="section-title">Here to<br>race.</h2>
+
           <p class="section-copy">
-            This is where your personal story will go: where you started, what
-            drives you, how you train, and the ambition behind every race.
+            Isaac began his motorsport journey in the Sodi World Series in 2025.
+            Alongside his own racing, he works as a mechanic with ItalCorse Middle East
+            and supports younger drivers through coaching and guidance. These
+            experiences build racecraft and technical understanding—but the goal
+            remains clear: to progress as a racing driver.
           </p>
         </div>
 
         <article class="profile-card">
-          <p class="eyebrow">The Mission</p>
+          <p class="eyebrow">Personal Statement</p>
           <h3>Built for the next level.</h3>
+
           <p>
-            DRIVER NAME is a focused motorsport athlete committed to progress
-            on and off the circuit. This profile will become a clear,
-            professional introduction for fans, teams, partners, and investors.
+            “I work in the paddock, I learn from every lap, and I help younger
+            drivers grow—but my purpose is clear: I am here to race.”
           </p>
-          <div class="profile-flags" aria-label="Australian and Hungarian heritage">
-            🇦🇺 &nbsp; 🇭🇺
-          </div>
+
+          <div class="profile-flags">🇦🇺 &nbsp; 🇭🇺</div>
         </article>
       </div>
     </section>
@@ -796,38 +786,51 @@
       <div class="container">
         <p class="eyebrow">Racing Career</p>
         <h2 class="section-title">Full<br>Attack.</h2>
+
         <p class="section-copy">
-          Your results, championships, teams, and defining moments will live
-          here. We will replace these placeholders with your actual career
-          history.
+          A young career built on progression: from SWS competition to Rotax
+          preparation, endurance racing, advanced testing, and the pursuit of a
+          complete championship campaign.
         </p>
 
         <div class="timeline">
           <article class="timeline-row">
-            <span class="year">2026</span>
+            <span class="year">2025</span>
             <div>
-              <h3>Current Campaign</h3>
-              <p>Championship, class, team, and season objective to be added.</p>
+              <h3>Motorsport Begins</h3>
+              <p>Started racing through the Sodi World Series.</p>
             </div>
-            <span class="tag">Current</span>
+            <span class="tag">Debut</span>
           </article>
 
           <article class="timeline-row">
-            <span class="year">2025</span>
+            <span class="year">2025–26</span>
             <div>
-              <h3>Career Milestone</h3>
-              <p>Key result, title, podium, or development season to be added.</p>
+              <h3>SWS Development</h3>
+              <p>10 podiums and a best regional SWS ranking of 49th.</p>
             </div>
-            <span class="tag">Racing</span>
+            <span class="tag">Progress</span>
+          </article>
+
+          <article class="timeline-row">
+            <span class="year">2026</span>
+            <div>
+              <h3>Yas Kartzone Solo Endurance</h3>
+              <p>P2 finish—Isaac’s best race result to date.</p>
+            </div>
+            <span class="tag">Podium</span>
           </article>
 
           <article class="timeline-row">
             <span class="year">Next</span>
             <div>
-              <h3>The Target</h3>
-              <p>Your next category, championship, or long-term racing goal.</p>
+              <h3>Rotax Max Pathway</h3>
+              <p>
+                Building toward a full 2027–2028 Rotax season and the opportunity
+                to race under ItalCorse Middle East.
+              </p>
             </div>
-            <span class="tag">Vision</span>
+            <span class="tag">Target</span>
           </article>
         </div>
       </div>
@@ -839,9 +842,10 @@
           <div>
             <p class="eyebrow">Racing Gallery</p>
             <h2 class="section-title">The paddock<br>in motion.</h2>
+
             <p class="section-copy">
-              A rotating 3D gallery for your racing photography. It is ready
-              for five images, which we will add once you upload them.
+              From preparation to the grid—five moments that show the work
+              behind the ambition.
             </p>
           </div>
 
@@ -852,84 +856,88 @@
         </div>
 
         <div class="gallery-stage">
-          <div class="gallery-track" id="gallery-track">
-            <article class="gallery-card photo-1">
-              <div class="gallery-card-content">
-                <small>Photo 01</small>
-                <h3>Race Day</h3>
-              </div>
-            </article>
+          <article class="gallery-card photo-1">
+            <div class="gallery-card-content">
+              <small>Photo 01</small>
+              <h3>Race Preparation</h3>
+            </div>
+          </article>
 
-            <article class="gallery-card photo-2">
-              <div class="gallery-card-content">
-                <small>Photo 02</small>
-                <h3>On Track</h3>
-              </div>
-            </article>
+          <article class="gallery-card photo-2">
+            <div class="gallery-card-content">
+              <small>Photo 02</small>
+              <h3>On Track</h3>
+            </div>
+          </article>
 
-            <article class="gallery-card photo-3">
-              <div class="gallery-card-content">
-                <small>Photo 03</small>
-                <h3>Full Focus</h3>
-              </div>
-            </article>
+          <article class="gallery-card photo-3">
+            <div class="gallery-card-content">
+              <small>Photo 03</small>
+              <h3>Full Focus</h3>
+            </div>
+          </article>
 
-            <article class="gallery-card photo-4">
-              <div class="gallery-card-content">
-                <small>Photo 04</small>
-                <h3>Race Weekend</h3>
-              </div>
-            </article>
+          <article class="gallery-card photo-4">
+            <div class="gallery-card-content">
+              <small>Photo 04</small>
+              <h3>Race Weekend</h3>
+            </div>
+          </article>
 
-            <article class="gallery-card photo-5">
-              <div class="gallery-card-content">
-                <small>Photo 05</small>
-                <h3>Next Level</h3>
-              </div>
-            </article>
-          </div>
+          <article class="gallery-card photo-5">
+            <div class="gallery-card-content">
+              <small>Photo 05</small>
+              <h3>On the Grid</h3>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="partners">
+    <section class="partners" id="partners">
       <div class="container">
-        <p class="eyebrow">Commercial Partners</p>
-        <h2 class="section-title">One team.<br>One direction.</h2>
+        <p class="eyebrow">Partnership Opportunities</p>
+        <h2 class="section-title">Join the<br>journey.</h2>
+
         <p class="section-copy">
-          This section will feature the brands, businesses, and people who
-          power the journey.
+          Isaac is seeking partners to support the pathway to a complete Rotax
+          Max season. Support helps turn preparation into opportunity—race
+          entries, testing, equipment, tyres, travel, coaching, and a
+          competitive programme.
         </p>
 
         <div class="partner-grid">
-          <div class="partner">Partner One</div>
-          <div class="partner">Partner Two</div>
-          <div class="partner">Partner Three</div>
-          <div class="partner">Your Brand</div>
+          <div class="partner">ItalCorse Middle East<br><small>Mechanic role</small></div>
+          <div class="partner">Your Brand Here</div>
+          <div class="partner">Your Brand Here</div>
         </div>
       </div>
     </section>
 
-    <section class="investors" id="investors">
+    <section class="investors">
       <div class="container investor-grid">
         <div>
-          <p class="eyebrow">Investor Opportunities</p>
+          <p class="eyebrow">Why Partner With Isaac</p>
           <h2 class="section-title">Back the<br>ambition.</h2>
+
           <p class="section-copy">
-            Motorsport performance needs a long-term plan. This page will
-            explain the vision, commercial potential, investment priorities,
-            and pathway ahead.
+            Partners receive authentic racing content and collaborative
+            opportunities, with potential helmet and kart branding, Instagram
+            collaborations, paddock visibility, and positive representation in
+            interviews and appearances.
           </p>
         </div>
 
         <article class="investor-box">
           <h3>Performance. Reach. Growth.</h3>
+
           <p>
-            A clear private investor proposition will be added here, including
-            the racing plan, commercial opportunities, and a request-for-deck
-            contact route.
+            Isaac combines a driver’s ambition with hands-on paddock experience
+            and a commitment to helping younger drivers. The objective is simple:
+            develop, perform, and earn the next opportunity in motorsport.
           </p>
-          <a class="button button-outline" href="#contact">Request information</a>
+
+          <a class="button button-outline" href="#contact">Become a partner</a>
         </article>
       </div>
     </section>
@@ -938,22 +946,28 @@
       <div class="container">
         <p class="eyebrow">Make Contact</p>
         <h2>Let’s create<br><span>momentum.</span></h2>
-        <a class="button" href="mailto:hello@example.com">Contact Driver Name</a>
+
+        <a class="button" href="mailto:Isaacpotts.racing@gmail.com">Email Isaac</a>
+
+        <p class="social-link">
+          Instagram:
+          <a href="https://www.instagram.com/isaacmaxwellpotts/" target="_blank" rel="noopener">
+            @isaacmaxwellpotts
+          </a>
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-row">
-      <span>© 2026 Driver Name</span>
+      <span>© 2026 Isaac Potts</span>
       <span>Motorsport / Performance / Partnership</span>
     </div>
   </footer>
 
   <script>
-    const cards = Array.from(document.querySelectorAll(".gallery-card"));
-    const previousButton = document.getElementById("previous-photo");
-    const nextButton = document.getElementById("next-photo");
+    const cards = [...document.querySelectorAll(".gallery-card")];
     let activePhoto = 0;
 
     function arrangeGallery() {
@@ -963,25 +977,22 @@
         if (position > 2) position -= cards.length;
         if (position < -2) position += cards.length;
 
-        const translateX = position * 48;
-        const translateZ = Math.abs(position) === 0 ? 70 : -Math.abs(position) * 170;
-        const rotateY = position * -28;
-        const opacity = Math.abs(position) > 2 ? 0 : 1;
-        const zIndex = 10 - Math.abs(position);
+        card.style.opacity = Math.abs(position) > 2 ? 0 : 1;
+        card.style.zIndex = 10 - Math.abs(position);
 
-        card.style.opacity = opacity;
-        card.style.zIndex = zIndex;
         card.style.transform =
-          `translate(-50%, -50%) translateX(${translateX}%) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+          `translate(-50%, -50%) translateX(${position * 48}%)
+          translateZ(${Math.abs(position) === 0 ? 70 : -Math.abs(position) * 170}px)
+          rotateY(${position * -28}deg)`;
       });
     }
 
-    nextButton.addEventListener("click", () => {
+    document.getElementById("next-photo").addEventListener("click", () => {
       activePhoto = (activePhoto + 1) % cards.length;
       arrangeGallery();
     });
 
-    previousButton.addEventListener("click", () => {
+    document.getElementById("previous-photo").addEventListener("click", () => {
       activePhoto = (activePhoto - 1 + cards.length) % cards.length;
       arrangeGallery();
     });
@@ -990,4 +1001,3 @@
   </script>
 </body>
 </html>
-
