@@ -669,5 +669,258 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 });
 </script>
+  <style>
+  /* Hero-side Al Forsan video monitor */
+  .hero-monitor{
+    position:absolute;
+    z-index:3;
+    right:5%;
+    bottom:10%;
+    width:min(34vw,440px);
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border:2px solid rgba(237,255,0,.8);
+    background:#090b10;
+    box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 35px rgba(11,95,194,.35);
+  }
+
+  .hero-monitor:before{
+    content:"LIVE ON TRACK · AL FORSAN · ROTAX DD2";
+    position:absolute;
+    z-index:2;
+    top:0;
+    left:0;
+    padding:.55rem .75rem;
+    background:rgba(9,11,16,.82);
+    color:#edff00;
+    font-size:.55rem;
+    font-weight:800;
+    letter-spacing:.12em;
+  }
+
+  .hero-monitor iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    pointer-events:none;
+  }
+
+  /* Adds subtle movement to the hero livery */
+  .hero:after{
+    animation:liveryShift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes liveryShift{
+    from{transform:skewX(-14deg) translateX(0)}
+    to{transform:skewX(-14deg) translateX(-38px)}
+  }
+
+  /* Adds life to the existing gallery cards */
+  .gallery-card,
+  .photo{
+    animation:galleryGlow 4s ease-in-out infinite;
+  }
+
+  .gallery-card:nth-child(2),
+  .photo:nth-child(2){animation-delay:.7s}
+
+  .gallery-card:nth-child(3),
+  .photo:nth-child(3){animation-delay:1.4s}
+
+  @keyframes galleryGlow{
+    0%,100%{box-shadow:0 28px 55px rgba(0,0,0,.6)}
+    50%{box-shadow:0 28px 65px rgba(11,95,194,.32),0 0 22px rgba(237,255,0,.13)}
+  }
+
+  /* Other videos drop-down */
+  .more-videos{
+    margin-top:2rem;
+    border:1px solid rgba(255,255,255,.18);
+    background:#111c2d;
+  }
+
+  .more-videos summary{
+    padding:1.1rem 1.25rem;
+    color:#edff00;
+    cursor:pointer;
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .more-videos-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+    padding:0 1.25rem 1.25rem;
+  }
+
+  .mini-video{
+    position:relative;
+    overflow:hidden;
+    min-height:160px;
+    padding:1.2rem;
+    background:#090b10;
+    border:1px solid rgba(255,255,255,.16);
+    cursor:pointer;
+  }
+
+  .mini-video:before{
+    content:"▶";
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    margin-bottom:1rem;
+    border:1px solid #edff00;
+    border-radius:50%;
+    color:#edff00;
+  }
+
+  .mini-video span{
+    display:block;
+    color:#edff00;
+    font-size:.62rem;
+    font-weight:800;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+
+  .mini-video h3{
+    margin-top:.5rem;
+    font-family:"Barlow Condensed",Arial,sans-serif;
+    font-size:1.8rem;
+    font-style:italic;
+    line-height:.9;
+    text-transform:uppercase;
+  }
+
+  .milestone:hover,
+  .timeline-card:hover{
+    border-top-color:#edff00;
+    box-shadow:0 0 28px rgba(237,255,0,.12);
+  }
+
+  @media(max-width:900px){
+    .hero-monitor{
+      position:relative;
+      right:auto;
+      bottom:auto;
+      width:min(100%,500px);
+      margin:2rem 0 0;
+    }
+
+    .more-videos-content{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .hero:after,
+    .gallery-card,
+    .photo{
+      animation:none;
+    }
+
+    .hero-monitor{
+      display:none;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+  /* Add Al Forsan DD2 video monitor to hero */
+  const heroContent=document.querySelector(".hero .container");
+
+  if(heroContent && !document.querySelector(".hero-monitor")){
+    heroContent.insertAdjacentHTML("beforeend",`
+      <div class="hero-monitor">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/-e_bfexJwW0?autoplay=1&mute=1&loop=1&playlist=-e_bfexJwW0&controls=0&modestbranding=1&playsinline=1&rel=0"
+          title="Isaac Potts racing a Rotax DD2 at Al Forsan"
+          allow="autoplay; encrypted-media; picture-in-picture">
+        </iframe>
+      </div>
+    `);
+  }
+
+  /* Add the expandable area for the other two videos */
+  const videosSection=document.getElementById("videos");
+
+  if(videosSection && !document.querySelector(".more-videos")){
+    videosSection.querySelector(".container").insertAdjacentHTML("beforeend",`
+      <details class="more-videos">
+        <summary>More on-track footage ↓</summary>
+
+        <div class="more-videos-content">
+          <article class="mini-video" data-extra-video="PXM4hOUw4k4">
+            <span>RAK Track</span>
+            <h3>IAME Kart</h3>
+          </article>
+
+          <article class="mini-video" data-extra-video="609TUmqYIeU">
+            <span>Yas Kart Zone</span>
+            <h3>Rotax Senior</h3>
+          </article>
+        </div>
+      </details>
+    `);
+  }
+
+  /* Opens extra-video cards in the existing video popup */
+  document.querySelectorAll("[data-extra-video]").forEach(card=>{
+    card.onclick=()=>{
+      const modal=document.getElementById("video-modal");
+      const player=document.getElementById("youtube-player");
+
+      player.src=
+        "https://www.youtube-nocookie.com/embed/"+
+        card.dataset.extraVideo+
+        "?autoplay=1&rel=0";
+
+      modal.classList.add("open");
+    };
+  });
+
+  /* Counts numerical result cards once they enter view */
+  const statNumbers=document.querySelectorAll(".number,.stat-number");
+
+  const statObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting || entry.target.dataset.counted)return;
+
+      const element=entry.target;
+      const text=element.textContent.trim();
+      const match=text.match(/^(\d+)$/);
+
+      if(!match)return;
+
+      const target=parseInt(match[1],10);
+      const duration=1100;
+      const start=performance.now();
+
+      function count(now){
+        const progress=Math.min((now-start)/duration,1);
+        element.textContent=Math.floor(progress*target);
+
+        if(progress<1){
+          requestAnimationFrame(count);
+        }else{
+          element.textContent=target;
+          element.dataset.counted="true";
+        }
+      }
+
+      requestAnimationFrame(count);
+    });
+  },{threshold:.55});
+
+  statNumbers.forEach(stat=>statObserver.observe(stat));
+
+});
+</script>
 </body>
 </html>
