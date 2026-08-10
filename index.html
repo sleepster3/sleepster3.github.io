@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Isaac Potts — Australian-Hungarian Karting Driver based in Abu Dhabi.">
+  <meta name="description" content="Isaac Potts — Australian-Hungarian karting driver based in Abu Dhabi.">
   <title>Isaac Potts | Motorsport</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,638 +12,221 @@
 
   <style>
     :root{
-      --carbon:#090b10;--midnight:#0d1420;--blue:#073b79;--blue-light:#0b5fc2;
+      --carbon:#090b10;--midnight:#0d1420;--blue:#073b79;--blue2:#0b5fc2;
       --yellow:#edff00;--red:#d61d2b;--white:#f7f5ef;--muted:#aab3c2;
-      --line:rgba(255,255,255,.14);--glass:rgba(15,22,34,.78);--max:1280px;
+      --line:rgba(255,255,255,.14);--panel:#111c2d;--max:1280px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{background:var(--carbon);color:var(--white);font-family:"Manrope",Arial,sans-serif;overflow-x:hidden}
+    body{background:var(--carbon);color:var(--white);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     button,input,select,textarea{font:inherit}
-    .container{margin:auto;width:min(92%,var(--max))}
+    .container{width:min(92%,var(--max));margin:auto}
     section{padding:7rem 0}
-
-    .eyebrow{
-      align-items:center;color:var(--yellow);display:flex;font-size:.68rem;
-      font-weight:800;gap:.7rem;letter-spacing:.18em;text-transform:uppercase;
-    }
-
-    .eyebrow::before{background:var(--red);content:"";height:2px;width:34px}
-
-    .section-title{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(3.4rem,8vw,7rem);
-      font-style:italic;font-weight:800;letter-spacing:-.06em;line-height:.78;
-      margin:.9rem 0 1.5rem;text-transform:uppercase;
-    }
-
-    .section-copy{color:var(--muted);font-size:1rem;line-height:1.8;max-width:660px}
-
-    .button{
-      background:var(--yellow);border:1px solid var(--yellow);color:var(--carbon);
-      cursor:pointer;display:inline-block;font-size:.72rem;font-weight:800;
-      letter-spacing:.12em;padding:1rem 1.3rem;text-transform:uppercase;transition:.25s ease;
-    }
-
+    .eyebrow{display:flex;align-items:center;gap:.7rem;color:var(--yellow);font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:34px;height:2px;background:var(--red)}
+    .title{font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(3.4rem,8vw,7rem);font-style:italic;font-weight:800;letter-spacing:-.06em;line-height:.78;margin:.9rem 0 1.5rem;text-transform:uppercase}
+    .copy{color:var(--muted);font-size:1rem;line-height:1.8;max-width:670px}
+    .button{display:inline-block;background:var(--yellow);border:1px solid var(--yellow);color:var(--carbon);cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.12em;padding:1rem 1.3rem;text-transform:uppercase;transition:.25s}
     .button:hover{background:var(--white);border-color:var(--white);transform:translateY(-3px)}
+    .outline{background:transparent;border-color:rgba(255,255,255,.5);color:var(--white)}
 
-    /* Header and desktop navigation */
-
-    header{
-      backdrop-filter:blur(15px);background:rgba(9,11,16,.9);border-bottom:1px solid var(--line);
-      left:0;position:fixed;top:0;width:100%;z-index:100;
-    }
-
-    nav{align-items:center;display:flex;height:76px;justify-content:space-between}
-
-    .brand{
-      align-items:center;display:flex;font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:1.5rem;font-style:italic;font-weight:800;gap:.65rem;
-      letter-spacing:.04em;text-transform:uppercase;
-    }
-
-    .brand img{height:34px;object-fit:contain;width:40px}
+    /* Header */
+    header{position:fixed;z-index:100;top:0;width:100%;background:rgba(9,11,16,.9);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:.65rem;font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.5rem;font-style:italic;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .brand img{width:40px;height:34px;object-fit:contain}
     .brand b{color:var(--yellow)}
-
-    .nav-links{align-items:center;display:flex;gap:1.4rem;list-style:none}
+    .nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
     .nav-links>li{position:relative}
-
-    .nav-links a,.dropdown-button{
-      background:transparent;border:0;color:var(--muted);cursor:pointer;
-      font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
-    }
-
+    .nav-links a,.dropdown-button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
     .nav-links a:hover,.dropdown-button:hover{color:var(--yellow)}
-
-    .dropdown-menu{
-      background:#101724;border:1px solid var(--line);display:none;
-      min-width:190px;padding:.5rem;position:absolute;right:0;top:1.7rem;
-    }
-
+    .dropdown-menu{display:none;position:absolute;right:0;top:1.7rem;min-width:190px;padding:.5rem;background:#101724;border:1px solid var(--line)}
     .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
     .dropdown-menu a{display:block;padding:.75rem}
-
-    /* Mobile menu */
-
-    .menu-toggle{
-      align-items:center;background:transparent;border:1px solid var(--line);
-      color:var(--white);cursor:pointer;display:none;font-size:1.3rem;
-      height:42px;justify-content:center;width:42px;
-    }
-
-    .mobile-menu{
-      background:rgba(9,11,16,.98);border-bottom:1px solid var(--line);
-      display:none;left:0;padding:1rem 4%;position:absolute;top:76px;width:100%;
-    }
-
+    .menu-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid var(--line);color:var(--white);cursor:pointer;font-size:1.3rem}
+    .mobile-menu{display:none;position:absolute;top:76px;left:0;width:100%;padding:1rem 4%;background:rgba(9,11,16,.98);border-bottom:1px solid var(--line)}
     .mobile-menu.open{display:block}
-
-    .mobile-menu a{
-      border-bottom:1px solid var(--line);color:var(--white);display:block;
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.5rem;
-      font-style:italic;font-weight:700;letter-spacing:.03em;padding:.9rem 0;text-transform:uppercase;
-    }
-
-    .mobile-menu a:last-child{border-bottom:0}
+    .mobile-menu a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line);font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.5rem;font-style:italic;font-weight:700;text-transform:uppercase}
 
     /* Hero */
-
-    .hero{
-      align-items:end;
-      background:
-        linear-gradient(90deg,rgba(9,11,16,.96) 0%,rgba(9,11,16,.77) 42%,rgba(9,11,16,.25) 100%),
-        url("photos/IMG_7983.jpeg") center 50% / cover;
-      display:grid;min-height:100vh;overflow:hidden;padding:8rem 0 4.5rem;position:relative;
-    }
-
-    .hero::before{
-      background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-      background-size:55px 55px;content:"";inset:0;
-      mask-image:linear-gradient(90deg,black,transparent 67%);position:absolute;
-    }
-
-    .livery-lines{
-      height:100%;opacity:.9;pointer-events:none;position:absolute;
-      right:-17%;top:0;transform:skewX(-14deg);width:57%;
-    }
-
-    .livery-lines::before{
-      background:
-        linear-gradient(148deg,transparent 0 42%,var(--yellow) 42.2% 43.5%,transparent 43.7% 100%),
-        linear-gradient(148deg,transparent 0 47%,var(--white) 47.2% 47.8%,transparent 48% 100%),
-        linear-gradient(148deg,transparent 0 51%,var(--red) 51.2% 52.8%,transparent 53% 100%),
-        linear-gradient(148deg,transparent 0 57%,var(--blue-light) 57.2% 58.8%,transparent 59% 100%);
-      content:"";inset:0;position:absolute;
-    }
-
-    .hero-content{max-width:840px;position:relative;z-index:2}
-
-    .identity{align-items:center;display:flex;gap:.75rem;margin-bottom:1.2rem}
-
-    .flags{
-      background:rgba(9,11,16,.7);border:1px solid rgba(255,255,255,.34);
-      display:inline-flex;font-size:1.1rem;gap:.35rem;padding:.34rem .6rem;
-    }
-
-    .identity-label{
-      color:var(--white);font-size:.65rem;font-weight:800;
-      letter-spacing:.13em;text-transform:uppercase;
-    }
-
-    .hero h1{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(5.2rem,15vw,12.5rem);
-      font-style:italic;font-weight:800;letter-spacing:-.09em;line-height:.67;
-      margin:.6rem 0 2.1rem;text-transform:uppercase;
-    }
-
+    .hero{display:grid;align-items:end;min-height:100vh;padding:8rem 0 4.5rem;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(9,11,16,.96),rgba(9,11,16,.76) 43%,rgba(9,11,16,.25)),url("photos/IMG_7983.jpeg") center/cover}
+    .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(90deg,black,transparent 68%)}
+    .livery{position:absolute;right:-17%;top:0;width:57%;height:100%;opacity:.9;transform:skewX(-14deg)}
+    .livery:before{content:"";position:absolute;inset:0;background:linear-gradient(148deg,transparent 0 42%,var(--yellow) 42.2% 43.5%,transparent 43.7%),linear-gradient(148deg,transparent 0 47%,var(--white) 47.2% 47.8%,transparent 48%),linear-gradient(148deg,transparent 0 51%,var(--red) 51.2% 52.8%,transparent 53%),linear-gradient(148deg,transparent 0 57%,var(--blue2) 57.2% 58.8%,transparent 59%)}
+    .hero-content{position:relative;z-index:2;max-width:850px}
+    .identity{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem}
+    .flags{display:inline-flex;gap:.35rem;padding:.34rem .6rem;background:rgba(9,11,16,.7);border:1px solid rgba(255,255,255,.34);font-size:1.1rem}
+    .identity-label{font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .hero h1{font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(5.2rem,15vw,12.5rem);font-style:italic;font-weight:800;letter-spacing:-.09em;line-height:.67;margin:.6rem 0 2rem;text-transform:uppercase}
     .hero h1 span{color:var(--yellow)}
+    .hero-intro{max-width:580px;margin-bottom:1.5rem;font-size:1.02rem;line-height:1.8}
+    .hero-contact{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem;margin-bottom:2rem;color:var(--yellow);font-size:.78rem;font-weight:800;letter-spacing:.05em}
+    .hero-contact a:hover{color:var(--white)}
+    .hero-bottom{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+    .lights{display:flex;gap:.4rem}
+    .lights span{width:14px;height:14px;border-radius:50%;background:var(--red);border:1px solid rgba(255,255,255,.45);box-shadow:0 0 15px rgba(214,29,43,.45)}
+    .lights:hover span{background:var(--yellow);box-shadow:0 0 15px rgba(237,255,0,.7)}
+    .hero-meta{position:absolute;right:4%;bottom:2rem;color:var(--yellow);font-size:.65rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;writing-mode:vertical-rl}
 
-    .hero-intro{
-      color:var(--white);font-size:1.02rem;line-height:1.8;
-      margin-bottom:2rem;max-width:570px;
-    }
-
-    .hero-bottom{align-items:center;display:flex;flex-wrap:wrap;gap:1.2rem}
-    .start-lights{display:flex;gap:.4rem}
-
-    .start-lights span{
-      background:var(--red);border:1px solid rgba(255,255,255,.45);border-radius:50%;
-      box-shadow:0 0 15px rgba(214,29,43,.45);height:14px;width:14px;
-    }
-
-    .start-lights:hover span{
-      background:var(--yellow);box-shadow:0 0 15px rgba(237,255,0,.7);
-    }
-
-    .hero-meta{
-      bottom:2rem;color:var(--yellow);font-size:.65rem;font-weight:800;
-      letter-spacing:.14em;position:absolute;right:4%;text-transform:uppercase;
-      writing-mode:vertical-rl;z-index:3;
-    }
-
-    /* Currently */
-
-    .currently{
-      background:var(--midnight);border-bottom:1px solid var(--line);
-      border-top:1px solid var(--line);padding:0;
-    }
-
+    /* Current */
+    .currently{padding:0;background:var(--midnight);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .currently-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr)}
-    .currently-title,.current-item{border-right:1px solid var(--line);padding:1.8rem 1.2rem}
-    .current-item:last-child{border-right:0}
-
-    .currently span{
-      color:var(--yellow);display:block;font-size:.64rem;font-weight:800;
-      letter-spacing:.12em;text-transform:uppercase;
-    }
-
-    .currently strong{
-      color:var(--white);display:block;font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:1.35rem;font-style:italic;font-weight:700;line-height:1;
-      margin-top:.5rem;text-transform:uppercase;
-    }
-
+    .currently-title,.current-item{padding:1.8rem 1.2rem;border-right:1px solid var(--line)}
+    .currently span{display:block;color:var(--yellow);font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .currently strong{display:block;margin-top:.5rem;font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.35rem;font-style:italic;font-weight:700;line-height:1;text-transform:uppercase}
     .currently-title strong{color:var(--yellow);font-size:clamp(2rem,3vw,3rem)}
 
-    /* Results */
+    /* Performance */
+    .performance{padding-bottom:2rem;background:linear-gradient(135deg,rgba(7,59,121,.15),transparent 48%),var(--carbon)}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3rem}
+    .stat{position:relative;min-height:155px;padding:1.2rem;background:rgba(15,22,34,.78);border:1px solid var(--line)}
+    .stat:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--yellow)}
+    .stat:nth-child(2):before{background:var(--red)}.stat:nth-child(3):before{background:var(--white)}.stat:nth-child(4):before{background:var(--blue2)}.stat:nth-child(5):before{background:var(--yellow)}
+    .stat-number{font-family:"Barlow Condensed",Arial,sans-serif;font-size:4.2rem;font-style:italic;font-weight:800;letter-spacing:-.06em;line-height:.8}
+    .stat-label{display:block;margin-top:.8rem;color:var(--muted);font-size:.63rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .schedule{margin-top:1rem;padding:1.4rem;border-left:4px solid var(--yellow);background:var(--panel)}
+    .schedule span{display:block;color:var(--yellow);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .schedule strong{display:block;margin-top:.4rem;font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.7rem;font-style:italic;text-transform:uppercase}
+    .schedule p{margin-top:.5rem;color:var(--muted);font-size:.9rem}
 
-    .results{
-      background:linear-gradient(135deg,rgba(7,59,121,.15),transparent 48%),var(--carbon);
-      padding-bottom:2rem;
-    }
-
-    .results-grid{display:grid;gap:1rem;grid-template-columns:repeat(5,1fr);margin-top:3rem}
-
-    .result-card{
-      background:var(--glass);border:1px solid var(--line);min-height:150px;
-      padding:1.2rem;position:relative;
-    }
-
-    .result-card::before{background:var(--yellow);content:"";height:3px;left:0;position:absolute;top:0;width:100%}
-    .result-card:nth-child(2)::before{background:var(--red)}
-    .result-card:nth-child(3)::before{background:var(--white)}
-    .result-card:nth-child(4)::before{background:var(--blue-light)}
-
-    .result-number{
-      color:var(--white);font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:3.8rem;font-style:italic;font-weight:800;letter-spacing:-.06em;line-height:.85;
-    }
-
-    .result-label{
-      color:var(--muted);display:block;font-size:.63rem;font-weight:800;
-      letter-spacing:.1em;margin-top:.7rem;text-transform:uppercase;
-    }
-
-    .next-race-card{background:var(--yellow);color:var(--carbon);padding:1.4rem}
-    .next-race-card span{display:block;font-size:.63rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
-
-    .next-race-card strong{
-      display:block;font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:1.55rem;font-style:italic;line-height:.92;margin-top:.55rem;text-transform:uppercase;
-    }
-
-    .next-race-card small{display:block;font-weight:800;margin-top:.8rem;text-transform:uppercase}
-
-    /* About */
-
-    .about{
-      background:linear-gradient(135deg,rgba(7,59,121,.16),transparent 45%),var(--carbon);
-    }
-
-    .about-grid{display:grid;gap:3rem;grid-template-columns:1.1fr .9fr}
-
-    .profile-card{
-      background:var(--glass);border:1px solid var(--line);
-      border-left:4px solid var(--yellow);padding:2rem;
-    }
-
-    .profile-card h3{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:2rem;
-      font-style:italic;line-height:.9;margin:1rem 0;text-transform:uppercase;
-    }
-
-    .profile-card p{color:var(--white);line-height:1.8}
-    .profile-flags{font-size:1.4rem;margin-top:1.5rem}
+    /* Content */
+    .about{background:linear-gradient(135deg,rgba(7,59,121,.16),transparent 45%),var(--carbon)}
+    .about-grid,.partner-form-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem}
+    .profile-card{padding:2rem;background:rgba(15,22,34,.78);border:1px solid var(--line);border-left:4px solid var(--yellow)}
+    .profile-card h3,.why-card h3{margin:1rem 0;font-family:"Barlow Condensed",Arial,sans-serif;font-size:2rem;font-style:italic;line-height:.9;text-transform:uppercase}
+    .profile-card p{line-height:1.8}.profile-flags{margin-top:1.5rem;font-size:1.4rem}
 
     /* Timeline */
-
-    .career{background:#0c1320;overflow:hidden;position:relative}
-
-    .career::before{
-      background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue-light));
-      content:"";height:3px;left:0;position:absolute;top:0;width:100%;
-    }
-
-    .timeline-controls{display:flex;gap:.65rem;margin-top:2rem}
-
-    .timeline-controls button,.gallery-controls button{
-      background:transparent;border:1px solid var(--line);color:var(--white);
-      cursor:pointer;font-size:1.2rem;height:44px;transition:.2s;width:44px;
-    }
-
-    .timeline-controls button:hover,.gallery-controls button:hover{
-      background:var(--yellow);border-color:var(--yellow);color:var(--carbon);
-    }
-
-    .timeline-scroll{
-      display:flex;gap:1.1rem;margin-top:1.8rem;overflow-x:auto;
-      padding:1rem 0 2rem;scroll-behavior:smooth;
-      scrollbar-color:var(--yellow) #101724;scrollbar-width:thin;
-    }
-
-    .timeline-card{
-      background:#111c2d;border:1px solid var(--line);border-top:4px solid var(--blue-light);
-      flex:0 0 min(82vw,360px);min-height:280px;opacity:0;padding:1.7rem;
-      transform:translateY(32px);transition:.65s ease;
-    }
-
+    .career{position:relative;overflow:hidden;background:#0c1320}
+    .career:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue2))}
+    .timeline-controls,.gallery-controls{display:flex;gap:.65rem;margin-top:2rem}
+    .timeline-controls button,.gallery-controls button{width:44px;height:44px;background:transparent;border:1px solid var(--line);color:var(--white);cursor:pointer;font-size:1.2rem}
+    .timeline-controls button:hover,.gallery-controls button:hover{background:var(--yellow);border-color:var(--yellow);color:var(--carbon)}
+    .timeline-scroll{display:flex;gap:1.1rem;overflow-x:auto;margin-top:1.8rem;padding:1rem 0 2rem;scroll-behavior:smooth;scrollbar-color:var(--yellow) #101724;scrollbar-width:thin}
+    .timeline-card{flex:0 0 min(82vw,360px);min-height:280px;padding:1.7rem;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--blue2);opacity:0;transform:translateY(32px);transition:.65s}
     .timeline-card.visible{opacity:1;transform:translateY(0)}
-    .timeline-card:nth-child(2){border-top-color:var(--red)}
-    .timeline-card:nth-child(3){border-top-color:var(--white)}
-    .timeline-card:nth-child(4){border-top-color:var(--yellow)}
-    .timeline-card:nth-child(5){border-top-color:var(--blue-light)}
-
+    .timeline-card:nth-child(2){border-top-color:var(--red)}.timeline-card:nth-child(3){border-top-color:var(--white)}.timeline-card:nth-child(4){border-top-color:var(--yellow)}.timeline-card:nth-child(5){border-top-color:var(--blue2)}
     .timeline-year{color:var(--yellow);font-size:.72rem;font-weight:800;letter-spacing:.14em}
-
-    .timeline-card h3{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:2.1rem;
-      font-style:italic;line-height:.88;margin:1rem 0;text-transform:uppercase;
-    }
-
+    .timeline-card h3{margin:1rem 0;font-family:"Barlow Condensed",Arial,sans-serif;font-size:2.1rem;font-style:italic;line-height:.88;text-transform:uppercase}
     .timeline-card p{color:var(--muted);font-size:.92rem;line-height:1.7}
-
-    .timeline-marker{
-      background:var(--yellow);color:var(--carbon);display:inline-block;
-      font-size:.62rem;font-weight:800;letter-spacing:.1em;margin-top:1.4rem;
-      padding:.4rem .55rem;text-transform:uppercase;
-    }
+    .marker{display:inline-block;margin-top:1.4rem;padding:.4rem .55rem;background:var(--yellow);color:var(--carbon);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
 
     /* Gallery */
-
-    .gallery-section{
-      background:radial-gradient(circle at 50% 0%,rgba(7,59,121,.22),transparent 45%),var(--carbon);
-      overflow:hidden;
-    }
-
-    .gallery-intro{display:flex;gap:2rem;justify-content:space-between}
-    .gallery-controls{align-items:end;display:flex;gap:.65rem}
-
-    .gallery-stage{height:445px;margin-top:3.5rem;perspective:1300px;position:relative}
-
-    .gallery-card{
-      background-color:#101724;background-position:center;background-size:cover;
-      border:2px solid rgba(255,255,255,.22);box-shadow:0 28px 55px rgba(0,0,0,.6);
-      height:315px;left:50%;overflow:hidden;position:absolute;top:50%;
-      transition:.7s cubic-bezier(.2,.8,.2,1);width:min(74vw,560px);
-    }
-
-    .gallery-label{
-      background:var(--carbon);border-top:2px solid var(--yellow);
-      bottom:0;left:0;padding:.7rem 1rem;position:absolute;width:100%;
-    }
-
-    .gallery-label small{
-      color:var(--yellow);display:block;font-size:.6rem;font-weight:800;
-      letter-spacing:.12em;text-transform:uppercase;
-    }
-
-    .gallery-label h3{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.55rem;
-      font-style:italic;line-height:.9;text-transform:uppercase;
-    }
-
+    .gallery{overflow:hidden;background:radial-gradient(circle at 50% 0,rgba(7,59,121,.22),transparent 45%),var(--carbon)}
+    .gallery-intro{display:flex;justify-content:space-between;gap:2rem}
+    .gallery-stage{position:relative;height:445px;margin-top:3.5rem;perspective:1300px}
+    .gallery-card{position:absolute;top:50%;left:50%;width:min(74vw,560px);height:315px;background:#101724 center/cover;border:2px solid rgba(255,255,255,.22);box-shadow:0 28px 55px rgba(0,0,0,.6);overflow:hidden;transition:.7s cubic-bezier(.2,.8,.2,1)}
+    .gallery-label{position:absolute;bottom:0;left:0;width:100%;padding:.7rem 1rem;background:var(--carbon);border-top:2px solid var(--yellow)}
+    .gallery-label small{display:block;color:var(--yellow);font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .gallery-label h3{font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.55rem;font-style:italic;line-height:.9;text-transform:uppercase}
     .photo-1{background-image:url("photos/38aebe5f-d450-480b-a634-d865028aa502.jpeg")}
     .photo-2{background-image:url("photos/9ee3454f-c79e-4933-9e7d-b08bd51af3f3.jpeg")}
     .photo-3{background-image:url("photos/IMG_7792.jpeg")}
     .photo-4{background-image:url("photos/IMG_7981.jpeg")}
     .photo-5{background-image:url("photos/IMG_8743.jpeg")}
 
-    /* Why Support Isaac */
-
-    .why{
-      background:linear-gradient(135deg,rgba(214,29,43,.12),transparent 48%),#0c1320;
-    }
-
-    .why-grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);margin-top:3rem}
-
-    .why-card{
-      background:#111c2d;border:1px solid var(--line);min-height:255px;
-      padding:1.7rem;position:relative;
-    }
-
-    .why-card::after{
-      background:var(--yellow);content:"";height:4px;left:0;position:absolute;top:0;width:44px;
-    }
-
-    .why-card:nth-child(2)::after{background:var(--red)}
-    .why-card:nth-child(3)::after{background:var(--blue-light)}
-
-    .why-number{
-      color:rgba(255,255,255,.1);font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:4rem;font-style:italic;font-weight:800;line-height:.8;
-    }
-
-    .why-card h3{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:2rem;
-      font-style:italic;line-height:.9;margin:1rem 0;text-transform:uppercase;
-    }
-
+    /* Why / connections */
+    .why{background:linear-gradient(135deg,rgba(214,29,43,.12),transparent 48%),#0c1320}
+    .why-grid,.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+    .why-card,.partner{position:relative;min-height:255px;padding:1.7rem;background:var(--panel);border:1px solid var(--line)}
+    .why-card:after{content:"";position:absolute;top:0;left:0;width:44px;height:4px;background:var(--yellow)}
+    .why-card:nth-child(2):after{background:var(--red)}.why-card:nth-child(3):after{background:var(--blue2)}
+    .why-number{color:rgba(255,255,255,.1);font-family:"Barlow Condensed",Arial,sans-serif;font-size:4rem;font-style:italic;font-weight:800;line-height:.8}
     .why-card p{color:var(--muted);font-size:.92rem;line-height:1.7}
-
-    /* Partners */
-
-    .partners{background:var(--carbon)}
-
-    .partner-grid{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);margin-top:3rem}
-
-    .partner{
-      align-items:center;background:#111c2d;border:1px solid var(--line);
-      color:#7c8797;display:flex;font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:1.6rem;font-style:italic;font-weight:700;justify-content:center;
-      letter-spacing:.04em;min-height:130px;padding:1rem;text-align:center;text-transform:uppercase;
-    }
-
+    .connections{background:var(--carbon)}
+    .partner{display:flex;align-items:center;justify-content:center;min-height:135px;color:#7c8797;font-family:"Barlow Condensed",Arial,sans-serif;font-size:1.6rem;font-style:italic;font-weight:700;text-align:center;text-transform:uppercase}
     .partner:first-child{border-color:rgba(237,255,0,.55);color:var(--yellow)}
 
-    /* Partner form */
+    /* Form */
+    .partner-form{background:linear-gradient(135deg,rgba(214,29,43,.15),transparent 45%),linear-gradient(315deg,rgba(7,59,121,.45),transparent 50%),var(--midnight)}
+    .form-card{padding:2rem;background:rgba(9,11,16,.82);border:1px solid rgba(255,255,255,.28);border-left:5px solid var(--yellow)}
+    .form-card h3,.partner-benefits h3{margin:1rem 0 1.5rem;font-family:"Barlow Condensed",Arial,sans-serif;font-size:2.3rem;font-style:italic;line-height:.9;text-transform:uppercase}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field{margin-bottom:1rem}
+    .field label{display:block;margin-bottom:.45rem;color:var(--white);font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .field input,.field select,.field textarea{width:100%;padding:.85rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.25);color:var(--white);outline:none}
+    .field textarea{min-height:120px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--yellow)}
+    .partner-benefits h3{color:var(--yellow)}
+    .benefits{list-style:none;margin-top:2rem}.benefits li{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.2);color:var(--white)}.benefits li:before{content:"→";margin-right:.8rem;color:var(--yellow);font-weight:800}
 
-    .partner-form-section{
-      background:
-        linear-gradient(135deg,rgba(214,29,43,.15),transparent 45%),
-        linear-gradient(315deg,rgba(7,59,121,.45),transparent 50%),
-        var(--midnight);
-    }
-
-    .partner-form-grid{align-items:start;display:grid;gap:4rem;grid-template-columns:1fr 1fr}
-
-    .form-card{
-      background:rgba(9,11,16,.82);border:1px solid rgba(255,255,255,.28);
-      border-left:5px solid var(--yellow);padding:2rem;
-    }
-
-    .form-card h3{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:2.3rem;
-      font-style:italic;line-height:.9;margin:1rem 0 1.5rem;text-transform:uppercase;
-    }
-
-    .form-row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-    .field{margin-bottom:1rem}
-
-    .field label{
-      color:var(--white);display:block;font-size:.64rem;font-weight:800;
-      letter-spacing:.1em;margin-bottom:.45rem;text-transform:uppercase;
-    }
-
-    .field input,.field select,.field textarea{
-      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.25);
-      color:var(--white);outline:none;padding:.85rem;width:100%;
-    }
-
-    .field textarea{min-height:120px;resize:vertical}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--yellow)}
-
-    .partner-benefits{padding-top:1rem}
-
-    .partner-benefits h3{
-      color:var(--yellow);font-family:"Barlow Condensed",Arial,sans-serif;
-      font-size:2.2rem;font-style:italic;line-height:.9;margin:1.1rem 0;text-transform:uppercase;
-    }
-
-    .benefits-list{list-style:none;margin-top:2rem}
-
-    .benefits-list li{
-      border-bottom:1px solid rgba(255,255,255,.2);color:var(--white);padding:1rem 0;
-    }
-
-    .benefits-list li::before{
-      color:var(--yellow);content:"→";font-weight:800;margin-right:.8rem;
-    }
-
-    /* Contact and footer */
-
-    .contact{background:var(--carbon);padding-bottom:8rem;text-align:center}
-
-    .contact h2{
-      font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(4rem,10vw,8rem);
-      font-style:italic;letter-spacing:-.07em;line-height:.72;margin:1rem auto 2.3rem;
-      max-width:900px;text-transform:uppercase;
-    }
-
+    /* Contact */
+    .contact{padding-bottom:8rem;text-align:center}
+    .contact h2{max-width:900px;margin:1rem auto 2.3rem;font-family:"Barlow Condensed",Arial,sans-serif;font-size:clamp(4rem,10vw,8rem);font-style:italic;letter-spacing:-.07em;line-height:.72;text-transform:uppercase}
     .contact h2 span{color:var(--yellow)}
-    .social-link{color:var(--muted);font-size:.9rem;margin-top:1.3rem}
-    .social-link a{color:var(--yellow);font-weight:800}
-
-    footer{
-      border-top:1px solid var(--line);color:var(--muted);font-size:.66rem;
-      font-weight:700;letter-spacing:.08em;padding:1.5rem 0;text-transform:uppercase;
-    }
-
-    .footer-row{align-items:center;display:flex;justify-content:space-between}
-    .footer-logo{height:30px;object-fit:contain;width:36px}
+    .social{margin-top:1.3rem;color:var(--muted);font-size:.9rem}.social a{color:var(--yellow);font-weight:800}
+    footer{padding:1.5rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .footer-row{display:flex;align-items:center;justify-content:space-between}.footer-logo{width:36px;height:30px;object-fit:contain}
 
     @media(max-width:900px){
-      .nav-links{display:none}
-      .menu-toggle{display:flex}
-      .hero{background-position:60% center}
-      .livery-lines{opacity:.5;right:-58%;width:125%}
-      .hero-meta{display:none}
-      .results-grid{grid-template-columns:1fr 1fr}
-      .next-race-card{grid-column:1/-1}
-      .currently-grid{grid-template-columns:1fr 1fr}
-      .currently-title{grid-column:1/-1}
-      .currently-title,.current-item{border-bottom:1px solid var(--line)}
-      .current-item:nth-child(3){border-right:0}
-      .about-grid,.partner-form-grid{grid-template-columns:1fr}
-      .why-grid{grid-template-columns:1fr}
-      .gallery-intro{flex-direction:column}
-      .gallery-stage{height:365px}
-      .gallery-card{height:250px;width:min(84vw,560px)}
-      .partner-grid{grid-template-columns:1fr}
-      .footer-row{flex-direction:column;gap:.7rem}
+      .nav-links{display:none}.menu-toggle{display:flex}.hero{background-position:60% center}.livery{right:-58%;width:125%;opacity:.5}.hero-meta{display:none}
+      .currently-grid{grid-template-columns:1fr 1fr}.currently-title{grid-column:1/-1}.currently-title,.current-item{border-bottom:1px solid var(--line)}.current-item:nth-child(3){border-right:0}
+      .stats{grid-template-columns:1fr 1fr}.about-grid,.partner-form-grid{grid-template-columns:1fr}.why-grid,.partner-grid{grid-template-columns:1fr}.gallery-intro{flex-direction:column}.gallery-stage{height:365px}.gallery-card{width:min(84vw,560px);height:250px}.footer-row{flex-direction:column;gap:.7rem}
     }
-
-    @media(max-width:520px){
-      .form-row{grid-template-columns:1fr}
-      .results-grid{grid-template-columns:1fr 1fr}
-      .identity-label{font-size:.57rem}
-    }
+    @media(max-width:520px){.form-row{grid-template-columns:1fr}.identity-label{font-size:.57rem}}
   </style>
 </head>
 
 <body>
   <header>
     <nav class="container">
-      <a class="brand" href="#home">
-        <img src="photos/ip-monogram.png" alt="IP logo">
-        Isaac <b>Potts</b>
-      </a>
-
+      <a class="brand" href="#home"><img src="photos/ip-monogram.png" alt="IP logo">Isaac <b>Potts</b></a>
       <ul class="nav-links">
         <li><a href="#about">Profile</a></li>
-
-        <li class="dropdown">
-          <button class="dropdown-button">Racing ▾</button>
-          <div class="dropdown-menu">
-            <a href="#currently">Current Campaign</a>
-            <a href="#results">Results & Schedule</a>
-            <a href="#career">Career Timeline</a>
-            <a href="#gallery">Photo Gallery</a>
-          </div>
-        </li>
-
-        <li class="dropdown">
-          <button class="dropdown-button">Partners ▾</button>
-          <div class="dropdown-menu">
-            <a href="#why">Why Support Isaac</a>
-            <a href="#partners">Current Partners</a>
-            <a href="#partner-form">Partner With Isaac</a>
-          </div>
-        </li>
+        <li class="dropdown"><button class="dropdown-button">Racing ▾</button><div class="dropdown-menu"><a href="#results">Performance</a><a href="#career">Career</a><a href="#gallery">Gallery</a></div></li>
+        <li class="dropdown"><button class="dropdown-button">Partners ▾</button><div class="dropdown-menu"><a href="#why">Why Support Isaac</a><a href="#connections">Connections</a><a href="#partner-form">Partner With Isaac</a></div></li>
       </ul>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#about">Profile</a>
-      <a href="#currently">Current Campaign</a>
-      <a href="#results">Results & Schedule</a>
-      <a href="#career">Career Timeline</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#why">Why Support Isaac</a>
-      <a href="#partners">Partners</a>
-      <a href="#partner-form">Partner With Isaac</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">Profile</a><a href="#results">Performance</a><a href="#career">Career</a><a href="#gallery">Gallery</a><a href="#why">Why Support Isaac</a><a href="#connections">Connections</a><a href="#partner-form">Partner With Isaac</a><a href="#contact">Contact</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="livery-lines"></div>
-
+      <div class="livery"></div>
       <div class="container hero-content">
-        <div class="identity">
-          <div class="flags"><span>🇦🇺</span><span>🇭🇺</span></div>
-          <span class="identity-label">Australian / Hungarian Motorsport Driver</span>
-        </div>
-
+        <div class="identity"><div class="flags"><span>🇦🇺</span><span>🇭🇺</span></div><span class="identity-label">Australian / Hungarian Motorsport Driver</span></div>
         <p class="eyebrow">Official Motorsport Website</p>
         <h1>Isaac<br><span>Potts.</span></h1>
-
-        <p class="hero-intro">
-          Australian-Hungarian karting driver based in Abu Dhabi. Building
-          racecraft, technical knowledge, and momentum toward a full Rotax Max season.
-        </p>
-
-        <div class="hero-bottom">
-          <a class="button" href="#results">Explore the journey</a>
-          <div class="start-lights" title="Start lights">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
+        <p class="hero-intro">Australian-Hungarian karting driver based in Abu Dhabi. Building performance, racecraft, and momentum toward a planned full Rotax Max campaign.</p>
+        <div class="hero-contact">
+          <a href="mailto:Isaacpotts.racing@gmail.com">Isaacpotts.racing@gmail.com</a>
+          <a href="https://www.instagram.com/isaacmaxwellpotts/" target="_blank" rel="noopener">@isaacmaxwellpotts</a>
         </div>
+        <div class="hero-bottom"><a class="button" href="#results">View performance</a><div class="lights"><span></span><span></span><span></span><span></span><span></span></div></div>
       </div>
-
       <span class="hero-meta">Driver / Abu Dhabi / Est. 2025</span>
     </section>
 
     <section class="currently" id="currently">
       <div class="container currently-grid">
-        <div class="currently-title">
-          <span>Currently</span>
-          <strong>On the grid.</strong>
-        </div>
-
-        <div class="current-item">
-          <span>Driver programme</span>
-          <strong>SWS & Rotax Development</strong>
-        </div>
-
-        <div class="current-item">
-          <span>Paddock role</span>
-          <strong>ItalCorse Middle East</strong>
-        </div>
-
-        <div class="current-item">
-          <span>Target</span>
-          <strong>Full 2027–2028 Rotax Season</strong>
-        </div>
+        <div class="currently-title"><span>Currently</span><strong>On the grid.</strong></div>
+        <div class="current-item"><span>Driver programme</span><strong>SWS & Rotax Development</strong></div>
+        <div class="current-item"><span>Paddock experience</span><strong>ItalCorse Middle East</strong></div>
+        <div class="current-item"><span>Planned target</span><strong>2027–2028 Rotax Campaign</strong></div>
       </div>
     </section>
 
-    <section class="results" id="results">
+    <section class="performance" id="results">
       <div class="container">
-        <p class="eyebrow">Results & Schedule</p>
-        <h2 class="section-title">Built on<br>progress.</h2>
+        <p class="eyebrow">Performance</p>
+        <h2 class="title">Results that<br>matter.</h2>
+        <p class="copy">A growing racing record built through consistent results, podium finishes, and strong top-10 performance.</p>
 
-        <div class="results-grid">
-          <article class="result-card">
-            <div class="result-number">P2</div>
-            <span class="result-label">Best Race Result</span>
-          </article>
+        <div class="stats">
+          <article class="stat"><div class="stat-number">30</div><span class="stat-label">Races</span></article>
+          <article class="stat"><div class="stat-number">10</div><span class="stat-label">Podiums</span></article>
+          <article class="stat"><div class="stat-number">26</div><span class="stat-label">Top-10 Finishes</span></article>
+          <article class="stat"><div class="stat-number">P6</div><span class="stat-label">Average Finish</span></article>
+          <article class="stat"><div class="stat-number">P49</div><span class="stat-label">2025 SWS Regional Championship</span></article>
+        </div>
 
-          <article class="result-card">
-            <div class="result-number">10</div>
-            <span class="result-label">Podium Finishes</span>
-          </article>
-
-          <article class="result-card">
-            <div class="result-number">49</div>
-            <span class="result-label">Regional SWS Ranking</span>
-          </article>
-
-          <article class="result-card">
-            <div class="result-number">25</div>
-            <span class="result-label">Motorsport Debut</span>
-          </article>
-
-          <article class="next-race-card">
-            <span>Next Event</span>
-            <strong>Rotax Max Senior<br>Al Forsan International Circuit</strong>
-            <small>Date to be confirmed</small>
-          </article>
+        <div class="schedule">
+          <span>Upcoming Target</span>
+          <strong>Rotax Max Senior — Al Forsan International Circuit</strong>
+          <p>Planned next step. Date and race programme are yet to be confirmed.</p>
         </div>
       </div>
     </section>
@@ -652,26 +235,13 @@
       <div class="container about-grid">
         <div>
           <p class="eyebrow">Driver Profile</p>
-          <h2 class="section-title">Here to<br>race.</h2>
-
-          <p class="section-copy">
-            Isaac began his motorsport journey in the Sodi World Series in 2025.
-            Alongside his own racing, he works in the paddock with ItalCorse Middle
-            East and supports younger drivers through coaching and guidance. These
-            experiences build racecraft and technical understanding—but the goal
-            remains clear: to progress as a racing driver.
-          </p>
+          <h2 class="title">Here to<br>race.</h2>
+          <p class="copy">Isaac began his motorsport journey in the Sodi World Series in 2025. Alongside competing, he is an intern mechanic with ItalCorse Middle East and supports younger drivers through coaching and guidance. These experiences develop technical understanding and leadership—but his purpose remains clear: to progress as a racing driver.</p>
         </div>
-
         <article class="profile-card">
           <p class="eyebrow">Personal Statement</p>
           <h3>Built for the next level.</h3>
-
-          <p>
-            “I work in the paddock, I learn from every lap, and I help younger
-            drivers grow—but my purpose is clear: I am here to race.”
-          </p>
-
+          <p>“I work in the paddock, I learn from every lap, and I help younger drivers grow—but my purpose is clear: I am here to race.”</p>
           <div class="profile-flags">🇦🇺 &nbsp; 🇭🇺</div>
         </article>
       </div>
@@ -680,112 +250,32 @@
     <section class="career" id="career">
       <div class="container">
         <p class="eyebrow">Athlete Journey</p>
-        <h2 class="section-title">Built to<br>compete.</h2>
-
-        <p class="section-copy">
-          Scroll through the milestones behind the ambition—from national-level
-          swimming to motorsport and the pathway toward Rotax Max competition.
-        </p>
-
-        <div class="timeline-controls">
-          <button id="timeline-left">←</button>
-          <button id="timeline-right">→</button>
-        </div>
+        <h2 class="title">Built to<br>compete.</h2>
+        <p class="copy">From national-level swimming to karting, each stage has built the discipline and competitive mindset behind Isaac’s racing career.</p>
+        <div class="timeline-controls"><button id="timeline-left">←</button><button id="timeline-right">→</button></div>
 
         <div class="timeline-scroll" id="timeline-scroll">
-          <article class="timeline-card">
-            <span class="timeline-year">Before Racing</span>
-            <h3>National-Level Swimming</h3>
-            <p>
-              Competed as a national-level swimmer with 4th Lane Swim Academy,
-              developing fitness, discipline, race mentality, and a commitment
-              to performance before moving into motorsport.
-            </p>
-            <span class="timeline-marker">Athlete Foundation</span>
-          </article>
-
-          <article class="timeline-card">
-            <span class="timeline-year">2025</span>
-            <h3>Motorsport Begins</h3>
-            <p>
-              Started racing through the Sodi World Series and began building
-              racecraft through competitive karting.
-            </p>
-            <span class="timeline-marker">Debut</span>
-          </article>
-
-          <article class="timeline-card">
-            <span class="timeline-year">2025–2026</span>
-            <h3>SWS Development</h3>
-            <p>
-              Built experience through competition, earning 10 podiums and
-              reaching a best regional SWS ranking of 49th.
-            </p>
-            <span class="timeline-marker">Progress</span>
-          </article>
-
-          <article class="timeline-card">
-            <span class="timeline-year">2026</span>
-            <h3>P2 Endurance Result</h3>
-            <p>
-              Achieved P2 at Yas Kartzone Solo Endurance—Isaac’s best race
-              result to date.
-            </p>
-            <span class="timeline-marker">Podium</span>
-          </article>
-
-          <article class="timeline-card">
-            <span class="timeline-year">Next</span>
-            <h3>Rotax Max Pathway</h3>
-            <p>
-              Building toward a full 2027–2028 Rotax season, with the goal of
-              earning the opportunity to race under ItalCorse Middle East.
-            </p>
-            <span class="timeline-marker">Target</span>
-          </article>
+          <article class="timeline-card"><span class="timeline-year">Before Racing</span><h3>National-Level Swimming</h3><p>Competed as a national-level swimmer with 4th Lane Swim Academy, developing fitness, discipline, race mentality, and a commitment to performance.</p><span class="marker">Athlete Foundation</span></article>
+          <article class="timeline-card"><span class="timeline-year">2025</span><h3>Motorsport Begins</h3><p>Started racing through the Sodi World Series and began building racecraft through competitive karting.</p><span class="marker">Debut</span></article>
+          <article class="timeline-card"><span class="timeline-year">2025–2026</span><h3>SWS Development</h3><p>Built consistency across 30 races, earning 10 podiums, 26 top-10 finishes, and a P6 average finishing position.</p><span class="marker">Performance</span></article>
+          <article class="timeline-card"><span class="timeline-year">2026</span><h3>P2 Endurance Result</h3><p>Achieved P2 at Yas Kartzone Solo Endurance—Isaac’s best race result to date.</p><span class="marker">Podium</span></article>
+          <article class="timeline-card"><span class="timeline-year">Target</span><h3>Rotax Max Pathway</h3><p>Working toward a planned full 2027–2028 Rotax season. An opportunity to race under ItalCorse Middle East has been discussed but remains subject to future confirmation.</p><span class="marker">Future Goal</span></article>
         </div>
       </div>
     </section>
 
-    <section class="gallery-section" id="gallery">
+    <section class="gallery" id="gallery">
       <div class="container">
         <div class="gallery-intro">
-          <div>
-            <p class="eyebrow">Racing Gallery</p>
-            <h2 class="section-title">The paddock<br>in motion.</h2>
-
-            <p class="section-copy">
-              From preparation to the grid—five moments that show the work
-              behind the ambition.
-            </p>
-          </div>
-
-          <div class="gallery-controls">
-            <button id="previous-photo">←</button>
-            <button id="next-photo">→</button>
-          </div>
+          <div><p class="eyebrow">Racing Gallery</p><h2 class="title">The paddock<br>in motion.</h2><p class="copy">Moments from the work behind the ambition.</p></div>
+          <div class="gallery-controls"><button id="previous-photo">←</button><button id="next-photo">→</button></div>
         </div>
-
         <div class="gallery-stage">
-          <article class="gallery-card photo-1">
-            <div class="gallery-label"><small>Photo 01</small><h3>Race Preparation</h3></div>
-          </article>
-
-          <article class="gallery-card photo-2">
-            <div class="gallery-label"><small>Photo 02</small><h3>On Track</h3></div>
-          </article>
-
-          <article class="gallery-card photo-3">
-            <div class="gallery-label"><small>Photo 03</small><h3>Full Focus</h3></div>
-          </article>
-
-          <article class="gallery-card photo-4">
-            <div class="gallery-label"><small>Photo 04</small><h3>Race Weekend</h3></div>
-          </article>
-
-          <article class="gallery-card photo-5">
-            <div class="gallery-label"><small>Photo 05</small><h3>On the Grid</h3></div>
-          </article>
+          <article class="gallery-card photo-1"><div class="gallery-label"><small>Photo 01</small><h3>Race Preparation</h3></div></article>
+          <article class="gallery-card photo-2"><div class="gallery-label"><small>Photo 02</small><h3>On Track</h3></div></article>
+          <article class="gallery-card photo-3"><div class="gallery-label"><small>Photo 03</small><h3>Full Focus</h3></div></article>
+          <article class="gallery-card photo-4"><div class="gallery-label"><small>Photo 04</small><h3>Race Weekend</h3></div></article>
+          <article class="gallery-card photo-5"><div class="gallery-label"><small>Photo 05</small><h3>On the Grid</h3></div></article>
         </div>
       </div>
     </section>
@@ -793,56 +283,21 @@
     <section class="why" id="why">
       <div class="container">
         <p class="eyebrow">Why Support Isaac</p>
-        <h2 class="section-title">More than<br>a logo.</h2>
-
-        <p class="section-copy">
-          A partnership is an opportunity to be part of a racing journey built
-          on ambition, work ethic, and a clear path toward the next level.
-        </p>
-
+        <h2 class="title">More than<br>a logo.</h2>
+        <p class="copy">A partnership is an opportunity to be part of a racing journey built on performance, work ethic, and clear long-term ambition.</p>
         <div class="why-grid">
-          <article class="why-card">
-            <div class="why-number">01</div>
-            <h3>Driver First</h3>
-            <p>
-              Isaac’s focus is performance and progression—earning the
-              opportunity to compete in a full Rotax Max season.
-            </p>
-          </article>
-
-          <article class="why-card">
-            <div class="why-number">02</div>
-            <h3>Paddock Knowledge</h3>
-            <p>
-              Hands-on experience around ItalCorse Middle East provides
-              technical awareness, preparation, and understanding beyond the seat.
-            </p>
-          </article>
-
-          <article class="why-card">
-            <div class="why-number">03</div>
-            <h3>Mentorship</h3>
-            <p>
-              Coaching and guiding younger drivers demonstrates leadership,
-              positive representation, and commitment to karting’s next generation.
-            </p>
-          </article>
+          <article class="why-card"><div class="why-number">01</div><h3>Driver First</h3><p>Isaac’s priority is progression as a racing driver, with a proven base of consistent top-10 performances and podium finishes.</p></article>
+          <article class="why-card"><div class="why-number">02</div><h3>Paddock Knowledge</h3><p>Intern experience with ItalCorse Middle East creates technical awareness, preparation, and understanding beyond the seat.</p></article>
+          <article class="why-card"><div class="why-number">03</div><h3>Mentorship</h3><p>Supporting younger drivers demonstrates leadership, positive representation, and a commitment to karting’s next generation.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="partners" id="partners">
+    <section class="connections" id="connections">
       <div class="container">
-        <p class="eyebrow">Current Partners</p>
-        <h2 class="section-title">Join the<br>journey.</h2>
-
-        <p class="section-copy">
-          Isaac is seeking partners to support the pathway to a complete Rotax
-          Max season. Support helps turn preparation into opportunity—race
-          entries, testing, equipment, tyres, travel, coaching, and a
-          competitive racing programme.
-        </p>
-
+        <p class="eyebrow">Paddock & Partner Connections</p>
+        <h2 class="title">Built through<br>experience.</h2>
+        <p class="copy">Isaac is an intern mechanic with ItalCorse Middle East. A potential opportunity to race under the team with chassis and engine support has been offered, but remains subject to future confirmation.</p>
         <div class="partner-grid">
           <div class="partner">ItalCorse Middle East</div>
           <div class="partner">Your Brand Here</div>
@@ -851,64 +306,33 @@
       </div>
     </section>
 
-    <section class="partner-form-section" id="partner-form">
+    <section class="partner-form" id="partner-form">
       <div class="container partner-form-grid">
         <form class="form-card" id="partnership-form">
           <p class="eyebrow">Start a Conversation</p>
           <h3>Partner With Isaac</h3>
-
           <div class="form-row">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" type="text" placeholder="Your name" required>
-            </div>
-
-            <div class="field">
-              <label for="company">Company / brand</label>
-              <input id="company" type="text" placeholder="Company name">
-            </div>
+            <div class="field"><label for="name">Your name</label><input id="name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="company">Company / brand</label><input id="company" type="text" placeholder="Company name"></div>
           </div>
-
-          <div class="field">
-            <label for="email">Email address</label>
-            <input id="email" type="email" placeholder="you@company.com" required>
-          </div>
-
-          <div class="field">
-            <label for="interest">Partnership interest</label>
-            <select id="interest">
-              <option>Commercial partnership</option>
-              <option>Season support</option>
-              <option>Product partnership</option>
-              <option>Media or content collaboration</option>
-              <option>Other opportunity</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell Isaac how you would like to work together."></textarea>
-          </div>
-
+          <div class="field"><label for="email">Email address</label><input id="email" type="email" placeholder="you@company.com" required></div>
+          <div class="field"><label for="interest">Partnership interest</label><select id="interest"><option>Commercial partnership</option><option>Season support</option><option>Product partnership</option><option>Media or content collaboration</option><option>Other opportunity</option></select></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Tell Isaac how you would like to work together."></textarea></div>
           <button class="button" type="submit">Start a conversation</button>
         </form>
 
         <div class="partner-benefits">
-          <p class="eyebrow">Partnership Benefits</p>
-          <h2 class="section-title">Back the<br>ambition.</h2>
+          <p class="eyebrow">What Partners Receive</p>
+          <h2 class="title">Back the<br>ambition.</h2>
           <h3>Performance. Reach. Growth.</h3>
-
-          <p class="section-copy">
-            Partners become part of a focused motorsport journey built around
-            development, professionalism, and the drive to earn the next opportunity.
-          </p>
-
-          <ul class="benefits-list">
-            <li>Helmet branding opportunities</li>
-            <li>Potential kart branding during the season</li>
-            <li>Instagram collaborations and racing content</li>
-            <li>Paddock visibility and positive representation</li>
-            <li>Interviews, appearances, and product opportunities</li>
+          <p class="copy">Partnerships are built around genuine value and long-term collaboration as Isaac progresses through motorsport.</p>
+          <ul class="benefits">
+            <li>Helmet and potential kart branding</li>
+            <li>Instagram content, collabs, and brand mentions</li>
+            <li>Visibility at race events and in paddock content</li>
+            <li>Team and paddock access where appropriate</li>
+            <li>Product testing, ambassador opportunities, and appearances</li>
+            <li>Long-term partnership opportunities as the racing programme grows</li>
           </ul>
         </div>
       </div>
@@ -918,15 +342,8 @@
       <div class="container">
         <p class="eyebrow">Make Contact</p>
         <h2>Let’s create<br><span>momentum.</span></h2>
-
-        <a class="button" href="mailto:Isaacpotts.racing@gmail.com">Email Isaac</a>
-
-        <p class="social-link">
-          Instagram:
-          <a href="https://www.instagram.com/isaacmaxwellpotts/" target="_blank" rel="noopener">
-            @isaacmaxwellpotts
-          </a>
-        </p>
+        <a class="button" href="mailto:Isaacpotts.racing@gmail.com">Isaacpotts.racing@gmail.com</a>
+        <p class="social">Follow the journey: <a href="https://www.instagram.com/isaacmaxwellpotts/" target="_blank" rel="noopener">@isaacmaxwellpotts</a></p>
       </div>
     </section>
   </main>
@@ -940,108 +357,46 @@
   </footer>
 
   <script>
-    /* Mobile menu */
+    const menuToggle=document.getElementById("menu-toggle");
+    const mobileMenu=document.getElementById("mobile-menu");
+    menuToggle.onclick=()=>{mobileMenu.classList.toggle("open");menuToggle.textContent=mobileMenu.classList.contains("open")?"×":"☰"};
+    document.querySelectorAll(".mobile-menu a").forEach(link=>link.onclick=()=>{mobileMenu.classList.remove("open");menuToggle.textContent="☰"});
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-      menuToggle.textContent = mobileMenu.classList.contains("open") ? "×" : "☰";
-    });
-
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        menuToggle.textContent = "☰";
-      });
-    });
-
-    /* 3D gallery */
-
-    const cards = [...document.querySelectorAll(".gallery-card")];
-    let activePhoto = 0;
-
-    function arrangeGallery() {
-      cards.forEach((card, index) => {
-        let position = index - activePhoto;
-
-        if (position > 2) position -= cards.length;
-        if (position < -2) position += cards.length;
-
-        card.style.opacity = Math.abs(position) > 2 ? 0 : 1;
-        card.style.zIndex = 10 - Math.abs(position);
-
-        card.style.transform =
-          `translate(-50%, -50%)
-          translateX(${position * 48}%)
-          translateZ(${Math.abs(position) === 0 ? 70 : -Math.abs(position) * 170}px)
-          rotateY(${position * -28}deg)`;
+    const cards=[...document.querySelectorAll(".gallery-card")];
+    let activePhoto=0;
+    function arrangeGallery(){
+      cards.forEach((card,index)=>{
+        let p=index-activePhoto;
+        if(p>2)p-=cards.length;
+        if(p<-2)p+=cards.length;
+        card.style.opacity=Math.abs(p)>2?0:1;
+        card.style.zIndex=10-Math.abs(p);
+        card.style.transform=`translate(-50%,-50%) translateX(${p*48}%) translateZ(${Math.abs(p)===0?70:-Math.abs(p)*170}px) rotateY(${p*-28}deg)`;
       });
     }
-
-    document.getElementById("next-photo").addEventListener("click", () => {
-      activePhoto = (activePhoto + 1) % cards.length;
-      arrangeGallery();
-    });
-
-    document.getElementById("previous-photo").addEventListener("click", () => {
-      activePhoto = (activePhoto - 1 + cards.length) % cards.length;
-      arrangeGallery();
-    });
-
+    document.getElementById("next-photo").onclick=()=>{activePhoto=(activePhoto+1)%cards.length;arrangeGallery()};
+    document.getElementById("previous-photo").onclick=()=>{activePhoto=(activePhoto-1+cards.length)%cards.length;arrangeGallery()};
     arrangeGallery();
 
-    /* Timeline */
+    const timeline=document.getElementById("timeline-scroll");
+    document.getElementById("timeline-left").onclick=()=>timeline.scrollBy({left:-380,behavior:"smooth"});
+    document.getElementById("timeline-right").onclick=()=>timeline.scrollBy({left:380,behavior:"smooth"});
 
-    const timeline = document.getElementById("timeline-scroll");
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")});
+    },{threshold:.15});
+    document.querySelectorAll(".timeline-card").forEach(card=>observer.observe(card));
 
-    document.getElementById("timeline-left").addEventListener("click", () => {
-      timeline.scrollBy({ left: -380, behavior: "smooth" });
-    });
-
-    document.getElementById("timeline-right").addEventListener("click", () => {
-      timeline.scrollBy({ left: 380, behavior: "smooth" });
-    });
-
-    const timelineCards = document.querySelectorAll(".timeline-card");
-
-    const timelineObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    timelineCards.forEach(card => timelineObserver.observe(card));
-
-    /* Partnership form */
-
-    document.getElementById("partnership-form").addEventListener("submit", event => {
+    document.getElementById("partnership-form").addEventListener("submit",event=>{
       event.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const company = document.getElementById("company").value;
-      const email = document.getElementById("email").value;
-      const interest = document.getElementById("interest").value;
-      const message = document.getElementById("message").value;
-
-      const subject = encodeURIComponent(
-        "Partnership enquiry — " + (company || name)
-      );
-
-      const body = encodeURIComponent(
-        "Name: " + name + "\n" +
-        "Company / Brand: " + company + "\n" +
-        "Email: " + email + "\n" +
-        "Partnership interest: " + interest + "\n\n" +
-        "Message:\n" + message
-      );
-
-      window.location.href =
-        "mailto:Isaacpotts.racing@gmail.com?subject=" + subject + "&body=" + body;
+      const name=document.getElementById("name").value;
+      const company=document.getElementById("company").value;
+      const email=document.getElementById("email").value;
+      const interest=document.getElementById("interest").value;
+      const message=document.getElementById("message").value;
+      const subject=encodeURIComponent("Partnership enquiry — "+(company||name));
+      const body=encodeURIComponent("Name: "+name+"\nCompany / Brand: "+company+"\nEmail: "+email+"\nPartnership interest: "+interest+"\n\nMessage:\n"+message);
+      window.location.href="mailto:Isaacpotts.racing@gmail.com?subject="+subject+"&body="+body;
     });
   </script>
 </body>
