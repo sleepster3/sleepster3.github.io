@@ -487,6 +487,66 @@ nav{
   font-weight:800;
   letter-spacing:.12em;
 }
+.development{
+  background:
+    linear-gradient(135deg,rgba(11,95,194,.18),transparent 48%),
+    var(--midnight);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.development-grid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:3rem;
+  align-items:start;
+}
+
+.development-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+.development-card{
+  min-height:260px;
+  padding:1.5rem;
+  background:rgba(9,11,16,.68);
+  border:1px solid var(--line);
+  border-top:4px solid var(--yellow);
+}
+
+.development-card:nth-child(2){
+  border-top-color:var(--red);
+}
+
+.development-card:nth-child(3){
+  border-top-color:var(--blue2);
+}
+
+.development-card span{
+  color:rgba(255,255,255,.12);
+  font-family:"Barlow Condensed",Arial,sans-serif;
+  font-size:4rem;
+  font-style:italic;
+  font-weight:800;
+  line-height:.8;
+}
+
+.development-card h3{
+  margin:1rem 0;
+  font-family:"Barlow Condensed",Arial,sans-serif;
+  font-size:1.8rem;
+  font-style:italic;
+  line-height:.9;
+  text-transform:uppercase;
+}
+
+.development-card p{
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.7;
+}
 .career{
   position:relative;
   overflow:hidden;
@@ -1021,6 +1081,7 @@ footer{
 }
 @media(max-width:900px){
   .results-detail{grid-template-columns:1fr}
+  .development-grid,.development-cards{grid-template-columns:1fr}
 }
 @media(max-width:900px){
   .nav-links{display:none}
@@ -1152,7 +1213,7 @@ footer{
       </div>
       <div class="current-item">
         <span>Planned target</span>
-        <strong>2027-2028 Rotax Campaign</strong>
+        <strong>Rotax Max Senior Development</strong>
       </div>
     </div>
   </section>
@@ -1194,9 +1255,12 @@ footer{
 </div>
 
      <div class="schedule">
-  <span>Upcoming Target</span>
-  <strong>Rotax Max Senior - Al Forsan International Circuit</strong>
-  <p>Planned next step. Date and race programme are yet to be confirmed.</p>
+  <span>Current Development</span>
+  <strong>Rotax Max Senior Programme</strong>
+  <p>
+    A structured 2026 programme focused on racecraft, technical learning,
+    preparation, and consistent performance development.
+  </p>
 </div> <details class="results-dropdown">
   <summary>View full 2025 and 2026 results</summary>
   <div class="results-dropdown-content">
@@ -1305,12 +1369,12 @@ footer{
         <p class="eyebrow">Driver Profile</p>
         <h2 class="title">Here to<br>race.</h2>
         <p class="copy">
-          Isaac began his motorsport journey in the Sodi World Series in 2025.
-          Alongside competing, he is an intern mechanic with ItalCorse Middle East
-          and supports younger drivers through coaching and guidance. These
-          experiences develop technical understanding and leadership - but his
-          purpose remains clear: to progress as a racing driver.
-        </p>
+  Isaac is a racing driver developing through SWS and Rotax Max Senior.
+  Alongside competing, he works as an intern mechanic with ItalCorse Middle
+  East and supports younger drivers through coaching and guidance. Driver
+  first, mechanic by experience, and mentor by mindset - each role develops
+  the racecraft, technical understanding, and leadership needed to progress.
+</p>
       </div>
 
       <article class="profile-card">
@@ -1324,7 +1388,48 @@ footer{
       </article>
     </div>
   </section>
+  <section class="development" id="development">
+    <div class="container development-grid">
+      <div>
+        <p class="eyebrow">2026 Development Programme</p>
+        <h2 class="title">Built for<br>Rotax.</h2>
+        <p class="copy">
+          Isaac is developing through a structured Rotax Max Senior programme
+          focused on track time, racecraft, technical understanding, and
+          performance preparation.
+        </p>
+      </div>
 
+      <div class="development-cards">
+        <article class="development-card">
+          <span>01</span>
+          <h3>Driver Development</h3>
+          <p>
+            Building Rotax Max Senior racecraft through focused track time,
+            repeatable pace, race starts, overtaking, and race management.
+          </p>
+        </article>
+
+        <article class="development-card">
+          <span>02</span>
+          <h3>Technical Learning</h3>
+          <p>
+            Developing mechanical knowledge through ItalCorse Middle East,
+            including kart preparation, setup awareness, and paddock process.
+          </p>
+        </article>
+
+        <article class="development-card">
+          <span>03</span>
+          <h3>Driver Mentorship</h3>
+          <p>
+            Supporting younger drivers through coaching, guidance, and positive
+            paddock leadership while continuing to develop as a competitor.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
   <section class="career" id="career">
     <div class="container">
       <p class="eyebrow">Athlete Journey</p>
@@ -1385,10 +1490,11 @@ footer{
           <span class="timeline-year">Target</span>
           <h3>Rotax Max Pathway</h3>
           <p>
-            Working toward a planned full 2027-2028 Rotax season. An
-            opportunity to race under ItalCorse Middle East has been discussed
-            but remains subject to future confirmation.
-          </p>
+  Developing through a structured Rotax Max Senior programme in 2026,
+  focused on track time, racecraft, technical learning, and race
+  preparation. The long-term aim is continued progression into a full
+  Rotax racing programme.
+</p>
           <span class="marker">Future Goal</span>
         </article>
       </div>
