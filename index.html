@@ -399,5 +399,275 @@
       window.location.href="mailto:Isaacpotts.racing@gmail.com?subject="+subject+"&body="+body;
     });
   </script>
+  <style>
+  .expand-button{margin-top:2rem}
+  .expand-panel{
+    display:none;
+    margin-top:2rem;
+    padding:2rem;
+    background:#111c2d;
+    border:1px solid rgba(255,255,255,.16);
+    border-left:4px solid #edff00
+  }
+  .expand-panel.open{display:block;animation:openPanel .45s ease}
+  @keyframes openPanel{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+  .record-grid,.media-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1rem;
+    margin-top:1.5rem
+  }
+
+  .record-card,.video-card,.full-photo{
+    background:#0d1420;
+    border:1px solid rgba(255,255,255,.14);
+    overflow:hidden
+  }
+
+  .record-card{padding:1.5rem}
+  .record-card span{
+    color:#edff00;
+    font-size:.65rem;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase
+  }
+
+  .record-card h3{
+    margin:.7rem 0;
+    font-family:"Barlow Condensed",Arial,sans-serif;
+    font-size:2rem;
+    font-style:italic;
+    text-transform:uppercase
+  }
+
+  .record-card p{
+    color:#aab3c2;
+    font-size:.9rem;
+    line-height:1.7
+  }
+
+  .video-thumb{
+    position:relative;
+    aspect-ratio:16/9;
+    background:#090b10 center/cover;
+    cursor:pointer
+  }
+
+  .video-thumb:after{
+    content:"▶";
+    position:absolute;
+    top:50%;
+    left:50%;
+    display:grid;
+    place-items:center;
+    width:62px;
+    height:62px;
+    transform:translate(-50%,-50%);
+    border:2px solid #edff00;
+    border-radius:50%;
+    background:rgba(9,11,16,.8);
+    color:#edff00;
+    font-size:1.3rem
+  }
+
+  .video-info{padding:1.2rem}
+  .video-info span{
+    color:#edff00;
+    font-size:.62rem;
+    font-weight:800;
+    letter-spacing:.1em;
+    text-transform:uppercase
+  }
+
+  .video-info h3{
+    margin:.55rem 0 .8rem;
+    font-family:"Barlow Condensed",Arial,sans-serif;
+    font-size:1.8rem;
+    font-style:italic;
+    line-height:.9;
+    text-transform:uppercase
+  }
+
+  .video-info p{color:#aab3c2;font-size:.85rem;line-height:1.6}
+  .full-photo img{display:block;width:100%;height:230px;object-fit:cover}
+
+  .video-modal{
+    display:none;
+    position:fixed;
+    z-index:500;
+    inset:0;
+    align-items:center;
+    justify-content:center;
+    padding:5%;
+    background:rgba(0,0,0,.9)
+  }
+
+  .video-modal.open{display:flex}
+  .video-wrap{position:relative;width:min(100%,1000px);aspect-ratio:16/9}
+  .video-wrap iframe{width:100%;height:100%;border:0}
+  .modal-close{
+    position:absolute;
+    right:0;
+    top:-48px;
+    width:38px;
+    height:38px;
+    border:1px solid rgba(255,255,255,.45);
+    background:#090b10;
+    color:#fff;
+    cursor:pointer;
+    font-size:1.35rem
+  }
+
+  @media(max-width:900px){
+    .record-grid,.media-grid{grid-template-columns:1fr}
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+  const resultsSection=document.getElementById("results");
+  const gallerySection=document.getElementById("gallery");
+
+  resultsSection.insertAdjacentHTML("beforeend",`
+    <button class="button expand-button" id="race-record-button">
+      Explore race record
+    </button>
+
+    <div class="expand-panel" id="race-record-panel">
+      <p class="eyebrow">Race Record</p>
+      <h3 style="font-family:'Barlow Condensed';font-size:3rem;font-style:italic;text-transform:uppercase;margin:1rem 0">
+        The work behind the numbers.
+      </h3>
+
+      <div class="record-grid">
+        <article class="record-card">
+          <span>Consistency</span>
+          <h3>26 Top-10s</h3>
+          <p>Strong top-10 consistency across 30 SWS races, showing repeatable pace and racecraft.</p>
+        </article>
+
+        <article class="record-card">
+          <span>Best Result</span>
+          <h3>P2 Endurance</h3>
+          <p>Podium finish at Yas Kartzone Solo Endurance—Isaac’s strongest race result to date.</p>
+        </article>
+
+        <article class="record-card">
+          <span>Championship</span>
+          <h3>P49 Regional</h3>
+          <p>Finished P49 in the 2025 SWS Regional Championship while building experience in competitive karting.</p>
+        </article>
+      </div>
+    </div>
+  `);
+
+  gallerySection.insertAdjacentHTML("beforeend",`
+    <button class="button expand-button" id="full-gallery-button">
+      View full gallery
+    </button>
+
+    <div class="expand-panel" id="full-gallery-panel">
+      <p class="eyebrow">Media Archive</p>
+      <h3 style="font-family:'Barlow Condensed';font-size:3rem;font-style:italic;text-transform:uppercase;margin:1rem 0">
+        Photos & on-track footage.
+      </h3>
+
+      <div class="media-grid">
+        <article class="full-photo">
+          <img src="photos/38aebe5f-d450-480b-a634-d865028aa502.jpg" alt="Isaac Potts race preparation">
+        </article>
+
+        <article class="full-photo">
+          <img src="photos/IMG_7792.jpg" alt="Isaac Potts racing">
+        </article>
+
+        <article class="full-photo">
+          <img src="photos/IMG_8743.jpg" alt="Isaac Potts on the grid">
+        </article>
+      </div>
+    </div>
+  `);
+
+  gallerySection.insertAdjacentHTML("afterend",`
+    <section class="videos" id="videos">
+      <div class="container">
+        <p class="eyebrow">On Track</p>
+        <h2 class="title">See the<br>progression.</h2>
+        <p class="copy">From IAME karting to Rotax Senior and DD2 machinery, these clips show Isaac developing across different tracks and kart categories.</p>
+
+        <div class="media-grid">
+          <article class="video-card">
+            <div class="video-thumb" data-video="PXM4hOUw4k4" style="background-image:url('https://img.youtube.com/vi/PXM4hOUw4k4/maxresdefault.jpg')"></div>
+            <div class="video-info">
+              <span>RAK Track</span>
+              <h3>IAME Kart</h3>
+              <p>Race footage from RAK Track in IAME machinery.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-thumb" data-video="609TUmqYIeU" style="background-image:url('https://img.youtube.com/vi/609TUmqYIeU/maxresdefault.jpg')"></div>
+            <div class="video-info">
+              <span>Yas Kart Zone</span>
+              <h3>Rotax Senior</h3>
+              <p>On-track footage in a Rotax Senior kart.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-thumb" data-video="-e_bfexJwW0" style="background-image:url('https://img.youtube.com/vi/-e_bfexJwW0/maxresdefault.jpg')"></div>
+            <div class="video-info">
+              <span>Al Forsan</span>
+              <h3>Rotax DD2</h3>
+              <p>Driving footage in Rotax DD2 machinery at Al Forsan.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="video-modal" id="video-modal">
+      <div class="video-wrap">
+        <button class="modal-close" id="modal-close">×</button>
+        <iframe id="youtube-player" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  `);
+
+  document.getElementById("race-record-button").onclick=()=>{
+    document.getElementById("race-record-panel").classList.toggle("open");
+  };
+
+  document.getElementById("full-gallery-button").onclick=()=>{
+    document.getElementById("full-gallery-panel").classList.toggle("open");
+  };
+
+  const modal=document.getElementById("video-modal");
+  const player=document.getElementById("youtube-player");
+
+  document.querySelectorAll(".video-thumb").forEach(video=>{
+    video.onclick=()=>{
+      player.src="https://www.youtube-nocookie.com/embed/"+video.dataset.video+"?autoplay=1&rel=0";
+      modal.classList.add("open");
+    };
+  });
+
+  document.getElementById("modal-close").onclick=()=>{
+    modal.classList.remove("open");
+    player.src="";
+  };
+
+  modal.onclick=(event)=>{
+    if(event.target===modal){
+      modal.classList.remove("open");
+      player.src="";
+    }
+  };
+
+});
+</script>
 </body>
 </html>
