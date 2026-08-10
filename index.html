@@ -489,7 +489,7 @@
       <div class="container currently-grid">
         <div class="currently-title"><span>Currently</span><strong>On the grid.</strong></div>
         <div class="current-item"><span>Driver programme</span><strong>SWS & Rotax Development</strong></div>
-        <div class="current-item"><span>Paddock experience</span><strong>ItalCorse Middle East Intern</strong></div>
+        <div class="current-item"><span>Paddock experience</span><strong>ItalCorse Middle East</strong></div>
         <div class="current-item"><span>Planned target</span><strong>2027–2028 Rotax Campaign</strong></div>
       </div>
     </section>
@@ -689,7 +689,7 @@
         <h2 class="title">Built through<br>experience.</h2>
         <p class="copy">Isaac is an intern mechanic with ItalCorse Middle East. This is paddock experience, not a confirmed racing partnership, sponsorship, team entry, or equipment-support arrangement.</p>
         <div class="partner-grid">
-          <div class="partner">ItalCorse Middle East<br><small>Intern mechanic</small></div>
+         <div class="partner">ItalCorse Middle East</div>
           <div class="partner">Your Brand Here</div>
           <div class="partner">Your Brand Here</div>
         </div>
@@ -771,8 +771,31 @@
         card.style.transform=`translate(-50%,-50%) translateX(${p*48}%) translateZ(${Math.abs(p)===0?70:-Math.abs(p)*170}px) rotateY(${p*-28}deg)`;
       });
     }
-    document.getElementById("next-photo").onclick=()=>{activePhoto=(activePhoto+1)%cards.length;arrangeGallery()};
-    document.getElementById("previous-photo").onclick=()=>{activePhoto=(activePhoto-1+cards.length)%cards.length;arrangeGallery()};
+    let galleryTimer;
+
+function moveGallery(){
+  activePhoto=(activePhoto+1)%cards.length;
+  arrangeGallery();
+}
+
+function startGallery(){
+  galleryTimer=setInterval(moveGallery,4200);
+}
+
+function stopGallery(){
+  clearInterval(galleryTimer);
+}
+
+const galleryStage=document.querySelector(".gallery-stage");
+
+galleryStage.addEventListener("mouseenter",stopGallery);
+galleryStage.addEventListener("mouseleave",startGallery);
+galleryStage.addEventListener("touchstart",stopGallery,{passive:true});
+galleryStage.addEventListener("touchend",startGallery,{passive:true});
+
+startGallery();
+
+arrangeGallery();
     arrangeGallery();
 
     const timeline=document.getElementById("timeline-scroll");
