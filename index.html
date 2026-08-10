@@ -171,7 +171,7 @@ nav{
   overflow:hidden;
   background:
     linear-gradient(90deg,rgba(9,11,16,.96),rgba(9,11,16,.76) 43%,rgba(9,11,16,.25)),
-    url("photos/IMG_7983.jpg") center/cover;
+    url("photos/IMG_7983.jpeg") center/cover;
 }
 .hero:before{
   content:"";
@@ -862,7 +862,71 @@ footer{
   height:30px;
   object-fit:contain;
 }
-
+.results-detail{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2rem;
+} .season-results{
+  margin-top:3rem;
+  padding-top:2.5rem;
+  border-top:1px solid var(--line);
+}
+.season-heading{
+  margin:0 0 1.2rem;
+}
+.season-heading span{
+  display:block;
+  color:var(--yellow);
+  font-size:.65rem;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.season-heading h3{
+  margin-top:.45rem;
+  font-family:"Barlow Condensed",Arial,sans-serif;
+  font-size:2.4rem;
+  font-style:italic;
+  line-height:.9;
+  text-transform:uppercase;
+}
+.season-heading-2025{
+  margin-top:3rem;
+}
+.result-card{
+  min-height:190px;
+  padding:1.5rem;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:4px solid var(--yellow);
+}
+.result-card:nth-child(2){border-left-color:var(--red)}
+.result-card:nth-child(3){border-left-color:var(--blue2)}
+.result-card span{
+  display:block;
+  color:var(--yellow);
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.result-card h3{
+  margin:.65rem 0 .8rem;
+  font-family:"Barlow Condensed",Arial,sans-serif;
+  font-size:2.1rem;
+  font-style:italic;
+  line-height:.9;
+  text-transform:uppercase;
+}
+.result-card p{
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.7;
+}
+@media(max-width:900px){
+  .results-detail{grid-template-columns:1fr}
+}
 @media(max-width:900px){
   .nav-links{display:none}
   .menu-toggle{display:block}
@@ -1015,12 +1079,105 @@ footer{
         <article class="stat"><div class="stat-number">P49</div><span class="stat-label">2025 SWS Regional Championship</span></article>
       </div>
 
-      <div class="schedule">
-        <span>Upcoming Target</span>
-        <strong>Rotax Max Senior - Al Forsan International Circuit</strong>
-        <p>Planned next step. Date and race programme are yet to be confirmed.</p>
-      </div>
-    </div>
+     <div class="schedule">
+  <span>Upcoming Target</span>
+  <strong>Rotax Max Senior - Al Forsan International Circuit</strong>
+  <p>Planned next step. Date and race programme are yet to be confirmed.</p>
+</div>
+
+<div class="results-detail">
+  <article class="result-card">
+    <span>Consistency</span>
+    <h3>26 Top-10s</h3>
+    <p>
+      Strong top-10 consistency across 30 SWS races, showing repeatable
+      pace and racecraft.
+    </p>
+  </article>
+
+  <article class="result-card">
+    <span>Best Result</span>
+    <h3>P2 Endurance</h3>
+    <p>
+      Podium finish at Yas Kartzone Solo Endurance - Isaac's strongest
+      race result to date.
+    </p>
+  </article>
+
+  <article class="result-card">
+    <span>Championship</span>
+    <h3>P49 Regional</h3>
+    <p>
+      Finished P49 in the 2025 SWS Regional Championship while building
+      experience in competitive karting.
+    </p>
+  </article>
+</div> <div class="season-results">
+  <div class="season-heading">
+    <span>Season Breakdown</span>
+    <h3>2026 Current Results</h3>
+  </div>
+
+  <div class="results-detail">
+    <article class="result-card">
+      <span>Sprint Cup</span>
+      <h3>P23 Track</h3>
+      <p>
+        Yas Kartzone track ranking: P23.<br>
+        National Sprint Cup ranking: P80.
+      </p>
+    </article>
+
+    <article class="result-card">
+      <span>Iron Kart Sprint</span>
+      <h3>P13 Track</h3>
+      <p>
+        Track ranking: P13.<br>
+        National ranking: P83.
+      </p>
+    </article>
+
+    <article class="result-card">
+      <span>2026 Form</span>
+      <h3>3.3 Average</h3>
+      <p>
+        2 podiums so far, with 3 completed races in the current season.
+      </p>
+    </article>
+  </div>
+
+  <div class="season-heading season-heading-2025">
+    <span>Previous Season</span>
+    <h3>2025 Results</h3>
+  </div>
+
+  <div class="results-detail">
+    <article class="result-card">
+      <span>Sprint Cup</span>
+      <h3>P13 Track</h3>
+      <p>
+        Yas Kartzone track ranking: P13.<br>
+        UAE national ranking: P49.
+      </p>
+    </article>
+
+    <article class="result-card">
+      <span>Sprint Cup Record</span>
+      <h3>3 Podiums</h3>
+      <p>
+        30 completed races, 26 top-10 finishes, and a 6.7 average finishing position.
+      </p>
+    </article>
+
+    <article class="result-card">
+      <span>Iron Kart Sprint</span>
+      <h3>2 Podiums</h3>
+      <p>
+        16 completed races with a 7.9 average finishing position.
+      </p>
+    </article>
+  </div>
+</div>
   </section>
     <section class="about" id="about">
     <div class="container about-grid">
